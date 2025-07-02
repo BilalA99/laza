@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${roboto.variable}`}>
+    <html lang="en">
       <body
         className={`${inter.variable} ${playfair.variable} ${roboto.variable} antialiased`}
       >
