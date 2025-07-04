@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 const navLinks = [
     { label: "Menu", href: "#" },
-    { label: "About", href: "#" },
+    { label: "About", href: "/about" },
     { label: "Catering", href: "#" },
     { label: "Locations", href: "#" },
     { label: "Join Us", href: "#" },
@@ -28,16 +28,16 @@ export default function Navbar() {
         >
             <div className="mx-auto flex items-center justify-between px-20 py-4">
                 {/* Logo */}
-                <div className="flex items-center">
-                    <Image src="/lazanavbarlogo.png" alt="Laza Logo" width={80} height={60} />
-                </div>
+                <Link href="/" className="flex items-center rounded-full overflow-hidden relative h-20 w-20">
+                    <Image src={scrolled ? "/lazabluelogo.png" : "/lazanavbarlogo.png"} alt="Laza Logo" fill className={`${scrolled ? "object-cover" : "object-contain"} transition-all duration-300`}/>
+                </Link>
                 {/* Nav Links */}
                 <div className="flex-1 flex justify-center gap-12">
                     {navLinks.slice(0, 4).map((link) => (
                         <a
                             key={link.label}
                             href={link.href}
-                            className="text-lg font-medium transition-colors duration-300 hover:opacity-80"
+                            className="text-lg font-medium transition-colors hover:cursor-pointer duration-300 hover:opacity-80"
                         >
                             {link.label}
                         </a>
@@ -51,7 +51,7 @@ export default function Navbar() {
                     </a>
                     <a href="#" className="flex items-center gap-2 text-lg font-medium">
                         <Image src="/icons/bag.png" alt="Laza Logo" width={15} height={15} />
-                        (2)
+                        
                     </a>
                 </div>
             </div>

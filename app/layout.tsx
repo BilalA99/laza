@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import '@/components/embla.css'
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,6 +22,9 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Laza Desserts",
   description: "Laza Desserts",
+  icons: {
+    icon: "/lazabluelogo.png",
+  },
 };
 // Primary : #2C4B7E
 // Accent : #F1F1F1
@@ -40,6 +44,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
