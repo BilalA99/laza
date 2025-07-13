@@ -1,9 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const navLinks = [
-    ["About Us", "Our story", "Join Us", "Testimonials"],
-    ["Catering", "Order Online", "Contact Us", "Featured"],
+    { label: "Home", href: "/" },
+    { label: "Menu", href: "/menu" },
+    { label: "About", href: "/about" },
+    { label: "Catering", href: "/catering" },
+    { label: "Locations", href: "#" },
+    { label: "Join Us", href: "/join-us" },
 ];
 
 const locations = [
@@ -18,27 +23,33 @@ const locations = [
 ];
 
 const socialLinks = [
-    { href: "https://tiktok.com", icon: "/tiktok.svg", label: "TikTok" },
-    { href: "https://instagram.com", icon: "/instagram.svg", label: "Instagram" },
+    { href: "https://tiktok.com", icon: "/tiktok.png", label: "TikTok" },
+    { href: "https://instagram.com", icon: "/insta.png", label: "Instagram" },
 ];
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-white border-t border-gray-200 pt-12 pb-4 px-4 md:px-0 transition-all duration-300">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-start md:justify-between gap-8 md:gap-0">
+        <footer className="w-full bg-white border-t border-gray-200 px-4 mt-1 pb-4 flex flex-col  md:px-0 transition-all duration-300"
+        style={{
+            boxShadow : '0px -2px 4px 0px rgba(0, 0, 0, 0.25)'
+        }}
+        >
+            <div className="max-w-7xl w-full mx-auto flex flex-col py-12  md:flex-row md:items-start md:justify-between gap-8 md:gap-0">
                 {/* Logo */}
-                <div className="flex flex-col items-center md:items-start w-full md:w-auto mb-8 md:mb-0">
-                    <Image src="/lazabluelogo.png" alt="Laza Logo" width={140} height={140} className="mb-2" />
+                <div className="md:flex hidden flex-col items-center md:items-start h-34 w-34 rounded-full overflow-hidden border relative aspect-square">
+                    <Image src="/lazabluelogo.png" alt="Laza Logo" fill className=" object-cover h-full w-full" />
                 </div>
                 {/* Navigation */}
-                <div className="flex flex-row flex-wrap gap-16 w-full md:w-auto justify-center md:justify-start">
-                    {navLinks.map((col, i) => (
-                        <div key={i} className="flex flex-col gap-4 min-w-[140px]">
-                            {col.map((link) => (
-                                <a key={link} href="#" className="text-lg font-semibold text-black hover:text-[#2C4B7E] transition-colors duration-200">{link}</a>
-                            ))}
-                        </div>
-                    ))}
+                <div className="flex flex-row md:flex-nowrap flex-wrap gap-16 w-full md:w-auto justify-center md:justify-start">
+                    
+                    <div className="flex flex-col w-full flex-wrap gap-4">
+                        {navLinks.map((col, i) => (
+                            <Link href={`${col.href}`} key={i} className="flex flex-col gap-4 min-w-[140px]">
+                                <p className="text-lg font-semibold text-black hover:text-[#2C4B7E] transition-colors duration-200">{col.label}</p>
+                            </Link>
+                        ))}
+                    </div>
+
                     {/* Locations */}
                     <div className="flex flex-col gap-2 min-w-[200px]">
                         <span className="text-lg font-bold mb-2">Locations</span>
@@ -60,9 +71,9 @@ export default function Footer() {
                 </div>
             </div>
             {/* Divider */}
-            <div className="w-full border-t border-[#2C4B7E] my-8" />
+            <div className="w-[90%] self-center flex  border-t border-[#2C4B7E] my-8" />
             {/* Bottom Row */}
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center text-black text-lg">
+            <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-4 text-center text-black text-lg">
                 <div className="flex items-center gap-4">
                     <span>Follow us</span>
                     {socialLinks.map((s) => (
