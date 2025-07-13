@@ -40,7 +40,7 @@ export default function Footer() {
                     <Image src="/lazabluelogo.png" alt="Laza Logo" fill className=" object-cover h-full w-full" />
                 </div>
                 {/* Navigation */}
-                <div className="flex flex-row md:flex-nowrap flex-wrap gap-16 w-full md:w-auto justify-center md:justify-start">
+                <div className="flex flex-row md:flex-nowrap flex-wrap gap-16 w-full md:w-auto justify-start">
                     
                     <div className="flex flex-col w-full flex-wrap gap-4">
                         {navLinks.map((col, i) => (
@@ -51,7 +51,7 @@ export default function Footer() {
                     </div>
 
                     {/* Locations */}
-                    <div className="flex flex-col gap-2 min-w-[200px]">
+                    <div className="flex flex-col gap-2 min-w-[200px] sm:w-auto w-full self-start">
                         <span className="text-lg font-bold mb-2">Locations</span>
                         {locations.map((loc) => (
                             <div key={loc.name} className="mb-2">
@@ -63,7 +63,7 @@ export default function Footer() {
                         ))}
                     </div>
                     {/* Hours */}
-                    <div className="flex flex-col gap-2 min-w-[180px]">
+                    <div className="flex flex-col gap-2 min-w-[180px] sm:w-auto w-full self-start">
                         <span className="text-lg font-bold mb-2">Opening Hours</span>
                         <span>Open 7 Days a Week</span>
                         <span>Daily Hours | 2:00 AM – 2:00 PM</span>

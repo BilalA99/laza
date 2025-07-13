@@ -119,7 +119,7 @@ export default function Navbar() {
                                     <Image src="/icons/phone.png" alt="Laza Logo" width={22} height={22} />
                                     +1 (347) 560-6080
                                 </a>
-                                <Link href="/checkout" className="flex items-center gap-3 text-lg font-medium">
+                                <Link href="/checkout" onClick={() => setSidebarOpen(false)} className="flex items-center gap-3 text-lg font-medium">
                                     <ShoppingCart className="text-[#2C4B7E] w-6 h-6" />
                                     {items.length > 0 && <span className="rounded-full w-5 h-5 flex items-center justify-center text-xs bg-[#2C4B7E] text-white">{(items.map(item => item.quantity).reduce((acc, curr) => acc + curr, 0))}</span>}
                                     Checkout

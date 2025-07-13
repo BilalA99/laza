@@ -8,11 +8,11 @@ const AboutUs = () => {
     return (
         <main className='flex flex-col items-center justify-center w-full overflow-hidden '>
             {/* Hero Section */}
-            <section className='relative flex max-w-[1440px] overflow-hidden flex-col items-start w-full sm:mt-32 mt-10 md:pl-0 pl-2 [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem),linear-gradient(to_top,transparent,black_6rem)] sm:pb-20'>
+            <section className='relative flex max-w-[1440px] overflow-hidden flex-col items-start w-full sm:mt-32 mt-10 md:pl-0 pl-2 [mask-composite:intersect] sm:[mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem),linear-gradient(to_top,transparent,black_6rem)] sm:pb-20'>
                 <div className='relative inset-0 md:w-[75%] w-[90%] md:h-130 h-80 overflow-hidden '>
                     <Image src="/bluelazaheader.png" alt="Blue Laza" fill className='object-cover object-center' />
                 </div>
-                <div className='absolute sm:top-1/4 top-25 xl:-right-10 md:right-0 -right-30 xl:w-200 lg:w-120 md:w-100 w-70 xl:h-180 lg:h-130 md:h-100 h-80' style={{ overflow: 'hidden' }}>
+                <div className='absolute sm:top-1/4 sm:mt-0 mt-20 xl:-right-10 md:right-0 -right-30 xl:w-200 lg:w-120 md:w-100 w-70 xl:h-180 lg:h-130 md:h-100 h-80' style={{ overflow: 'hidden' }}>
                     <Image src="/dubaichoclateheader.png" alt="Dubai Chocolate" fill className='object-cover object-center' />
                 </div>
 
@@ -34,7 +34,7 @@ const AboutUs = () => {
                 </div>
             </section>
 
-            <section className="flex relative flex-col items-center justify-center w-full h-full max-w-[1440px] overflow-hidden my-20">
+            <section className="flex relative flex-col items-center justify-center py-4 w-full h-full max-w-[1440px] overflow-hidden my-20">
                 <div className=" absolute xl:-top-20 top-0 left-0 z-4 w-full h-full inset-0 max-w-8xl overflow-hidden">
                     <FadeIn>
                         <p className="text-start xl:text-[26rem] md:text-[16rem] text-9xl"
@@ -68,7 +68,7 @@ const AboutUs = () => {
                         <Image src="/triplechoccake.jpg" alt="Triple Chocolate Cake" className='object-cover' fill />
                     </div>
                 </div>
-                <p className='text-center text-xl z-10 lg:w-[60%] w-[90%] mt-20 '>Laza is your go-to destination for playful, indulgent desserts with a luxe twist. From signature kunafa and sweet crepes to handcrafted matcha drinks, creamy milkshakes, and rich coffee, every item is made to delight. Whether you're stopping by for a late-night treat or a midday pick-me-up, Laza delivers flavor, fun, and Instagram-worthy vibes daily until 2 AM.</p>
+                <p className='text-center text-xl z-10 lg:w-[60%] w-[90%] sm:mt-20 mt-10 '>Laza is your go-to destination for playful, indulgent desserts with a luxe twist. From signature kunafa and sweet crepes to handcrafted matcha drinks, creamy milkshakes, and rich coffee, every item is made to delight. Whether you're stopping by for a late-night treat or a midday pick-me-up, Laza delivers flavor, fun, and Instagram-worthy vibes daily until 2 AM.</p>
                 <div className='sm:pb-50 z-10 mt-20'><OrderNowButton /></div>
             </section>
 
