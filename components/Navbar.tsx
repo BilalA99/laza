@@ -7,7 +7,7 @@ import { ShoppingCart, Menu, X } from "lucide-react";
 import { useCartStore } from "@/utils/cart";
 const navLinks = [
     { label: "Home", href: "/" },
-    { label: "Menu", href: "/menu" },
+    { label: "Online Order", href: "/menu" },
     { label: "About", href: "/about" },
     { label: "Catering", href: "/catering" },
     // { label: "Locations", href: "#" },
