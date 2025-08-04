@@ -272,7 +272,7 @@ export default function Home() {
                 }}
               >
                 <div className="bg-[#234B82] w-20 h-[3px] my-4 " />
-                <Reveal className="w-full"><p>Indulge in our signature Kunafa — a golden, crispy layer of shredded phyllo wrapped around a rich, creamy cheese center, delicately soaked in rose-scented syrup. pistachios.</p></Reveal>
+                <Reveal className="w-full"><p>Born in the heart of Bay Ridge, our story begins with a simple passion: transforming the world's finest cocoa into moments of pure joy. Laza is more than a dessert cafe; it's a celebration of craftsmanship, where every rich, decadent creation is handcrafted with love.</p></Reveal>
               </div>
 
 
@@ -304,7 +304,7 @@ export default function Home() {
                 }}
               >
                 <div className="bg-[#234B82] w-20 h-[3px] my-4" />
-                <Reveal className="w-full"><p>Indulge in our signature Kunafa — a golden, crispy layer of shredded phyllo wrapped around a rich, creamy cheese center, delicately soaked in rose-scented syrup. pistachios.</p></Reveal>
+                <Reveal className="w-full"><p>Our menu is a journey of flavor, blending timeless tradition with a vibrant New York edge. From comforting chocolate classics to inspired delights infused with rose-scented syrup and pistachios, we invite you to indulge your senses and discover a treat that feels like it was made just for you.</p></Reveal>
               </div>
             </div>
 
@@ -465,13 +465,13 @@ export default function Home() {
             <div className="text-black text-base mb-2">info@lazadessert.cafe</div>
             <a href="https://maps.google.com/?q=6740+5th+Ave,+Brooklyn,+NY+11220" target="_blank" rel="noopener noreferrer" className="text-[#2C4B7E] font-medium hover:underline mt-2">Get Directions</a>
           </div>
-          {/* Long Island City Card */}
+          {/* Astoria Card */}
           <div className="bg-white rounded-xl shadow border border-gray-200 p-8 w-[340px] min-h-[220px] flex flex-col sm:mt-10">
             <div className="flex items-center gap-2 mb-2">
               <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#2C4B7E" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 21c-4.418 0-8-5.373-8-10A8 8 0 1 1 20 11c0 4.627-3.582 10-8 10z" /><circle cx="12" cy="11" r="3" fill="#2C4B7E" /></svg>
-              <span className="text-xl font-bold text-[#2C4B7E]">Long Island City</span>
+              <span className="text-xl font-bold text-[#2C4B7E]">Astoria</span>
             </div>
-            <div className="text-black text-base mb-2">25-33 Steinway St,<br />Long Island City, NY 11220</div>
+            <div className="text-black text-base mb-2">25-33 Steinway St,<br />Astoria, NY 11220</div>
             <div className="text-black text-base mb-2">+1 (347) 507-1087</div>
             <div className="text-black text-base mb-2">info@lazadessert.cafe</div>
             <a href="https://maps.google.com/?q=25-33+Steinway+St,+Long+Island+City,+NY+11220" target="_blank" rel="noopener noreferrer" className="text-[#2C4B7E] font-medium hover:underline mt-2">Get Directions</a>

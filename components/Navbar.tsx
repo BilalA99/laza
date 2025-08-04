@@ -7,7 +7,8 @@ import { ShoppingCart, Menu, X } from "lucide-react";
 import { useCartStore } from "@/utils/cart";
 const navLinks = [
     { label: "Home", href: "/" },
-    { label: "Online Order", href: "/menu" },
+    { label: "Menu", href: "/menu" },
+    { label: "Online Order", href: "https://order.toasttab.com/online/locations/e4e3218e-7ad2-411f-a156-ec157a00652f/default" },
     { label: "About", href: "/about" },
     { label: "Catering", href: "/catering" },
     // { label: "Locations", href: "#" },
@@ -73,10 +74,10 @@ export default function Navbar() {
                         <Image src="/icons/phone.png" alt="Laza Logo" width={20} height={20} />
                         +1 (347) 560-6080
                     </a>
-                    <Link href="/checkout" className="flex items-center gap-2 text-lg font-medium">
+                    {/* <Link href="/checkout" className="flex items-center gap-2 text-lg font-medium">
                         <ShoppingCart className={`${scrolled || pathname === "/menu" || pathname === "/about" || pathname == '/checkout' || pathname == '/join-us' ? "text-[#2C4B7E]" : "text-white"} w-6 h-6`} />
                         {items.length > 0 && <span className={` rounded-full w-4 h-4 flex items-center justify-center text-sm ${scrolled || pathname === "/menu" || pathname === "/about" || pathname == '/checkout' ? "bg-[#2C4B7E] text-white" : "bg-white text-[#2C4B7E]"}`}>{(items.map(item => item.quantity).reduce((acc, curr) => acc + curr, 0))}</span>}
-                    </Link>
+                    </Link> */}
                 </div>
 
                 {/* Sidebar overlay */}

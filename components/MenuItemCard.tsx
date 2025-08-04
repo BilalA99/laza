@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import MenuItemDialog from "./MenuItemDialog";
+import Link from "next/link";
 
 interface MenuItemCardProps {
     imageSrc: string;
@@ -13,10 +14,12 @@ interface MenuItemCardProps {
         options: string[]
     }[];
 }
+const link = `https://order.toasttab.com/online/locations/e4e3218e-7ad2-411f-a156-ec157a00652f/default`
 
 const MenuItemCard: React.FC<MenuItemCardProps> = ({ imageSrc, title, description, price, modifiers }) => {
+    
     return (
-       <main className="w-full flex items-center justify-center">
+       <Link href={link} className="w-full flex items-center justify-center">
            <MenuItemDialog imageSrc={imageSrc} title={title} description={description} price={price} modifiers={modifiers}>
                 <div className="w-full max-w-xs h-110 self-center bg-transparent rounded-[40px] overflow-hidden hover:cursor-pointer shadow-none flex flex-col transition-all duration-200 hover:scale-105 hover:shadow-lg">
                     {/* Image */}
@@ -51,7 +54,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ imageSrc, title, descriptio
                     </div>
                 </div>
            </MenuItemDialog>
-       </main>
+       </Link>
     );
 };
 

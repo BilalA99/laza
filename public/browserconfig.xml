@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square150x150logo src="/lazabluelogo.png"/>
+            <square310x310logo src="/lazabluelogo.png"/>
+            <square70x70logo src="/lazabluelogo.png"/>
+            <TileColor>#1B3A6B</TileColor>
+            <showNameOnTiles>
+                <true/>
+            </showNameOnTiles>
+        </tile>
+    </msapplication>
+</browserconfig> 

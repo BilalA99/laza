@@ -10,7 +10,7 @@ const faqs = [
     },
     {
         question: "Where are you located?",
-        answer: "We have locations in Brooklyn and Long Island City, NY.",
+        answer: "We have locations in Brooklyn and Astoria, NY.",
     },
     {
         question: "Do you offer vegan or gluten-free desserts?",

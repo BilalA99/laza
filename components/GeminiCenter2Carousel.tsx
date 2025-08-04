@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import MenuItemDialog from './MenuItemDialog';
+import Link from 'next/link';
 
 
 // Main App Component
@@ -90,6 +91,7 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
             }
         }
     };
+    const link = `https://order.toasttab.com/online/locations/e4e3218e-7ad2-411f-a156-ec157a00652f/default`
 
     const handleMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
         if (dragStart === null) return;
@@ -163,20 +165,20 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
                                             <p className="text-sm md:text-base mt-3 text-gray-600">{product.description}</p>
                                             <div className="flex flex-col space-y-4 justify-between items-start mt-6">
                                                 <span className="font-bold text-lg md:text-xl text-gray-800 whitespace-nowrap">${product.price}</span>
-                                                <button
+                                                <Link
+                                                    href={link}
                                                     className="bg-blue-600  text-white font-semibold px-4 py-2 md:px-5 md:py-2.5 rounded-full text-sm md:text-base hover:bg-blue-700 transition-colors whitespace-nowrap pointer-events-auto"
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        if (!dragging && isActive) {
-                                                            setOpenDialogIndex(index);
-                                                        }
-                                                    }}
+                                                    // onClick={(e) => {
+                                                    //     e.stopPropagation();
+                                                    //     if (!dragging && isActive) {
+                                                    //         setOpenDialogIndex(index);
+                                                    //     }
+                                                    // }}
                                                     tabIndex={isActive ? 0 : -1}
-                                                    disabled={!isActive}
                                                 >
                                                     Add to cart +
-                                                </button>
-                                                <MenuItemDialog
+                                                </Link>
+                                                {/* <MenuItemDialog
                                                     imageSrc={product.imageSrc}
                                                     title={product.title}
                                                     description={product.description}
@@ -198,7 +200,7 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
                                                     >
                                                         Add to cart +
                                                     </button>
-                                                </MenuItemDialog>
+                                                </MenuItemDialog> */}
                                             </div>
                                         </div>
                                     </div>

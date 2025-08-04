@@ -17,8 +17,8 @@ const locations = [
         address: ["6740 5th Ave,", "Brooklyn, NY 11220"],
     },
     {
-        name: "Long Island City",
-        address: ["25-33 Steinway St,", "Long Island City, NY 11220"],
+        name: "Astoria",
+        address: ["25-33 Steinway St,", "Astoria, NY 11220"],
     },
 ];
 
@@ -30,9 +30,9 @@ const socialLinks = [
 export default function Footer() {
     return (
         <footer className="w-full bg-white border-t border-gray-200 px-4 mt-1 pb-4 flex flex-col  md:px-0 transition-all duration-300"
-        style={{
-            boxShadow : '0px -2px 4px 0px rgba(0, 0, 0, 0.25)'
-        }}
+            style={{
+                boxShadow: '0px -2px 4px 0px rgba(0, 0, 0, 0.25)'
+            }}
         >
             <div className="max-w-7xl w-full mx-auto flex flex-col py-12  md:flex-row md:items-start md:justify-between gap-8 md:gap-0">
                 {/* Logo */}
@@ -41,7 +41,7 @@ export default function Footer() {
                 </div>
                 {/* Navigation */}
                 <div className="flex flex-row md:flex-nowrap flex-wrap gap-16 w-full md:w-auto justify-start">
-                    
+
                     <div className="flex flex-col w-full flex-wrap gap-4">
                         {navLinks.map((col, i) => (
                             <Link href={`${col.href}`} key={i} className="flex flex-col gap-4 min-w-[140px]">
@@ -66,7 +66,7 @@ export default function Footer() {
                     <div className="flex flex-col gap-2 min-w-[180px] sm:w-auto w-full self-start">
                         <span className="text-lg font-bold mb-2">Opening Hours</span>
                         <span>Open 7 Days a Week</span>
-                        <span>Daily Hours | 2:00 AM – 2:00 PM</span>
+                        <span>Daily Hours | 2:00 PM – 2:00 AM</span>
                     </div>
                 </div>
             </div>

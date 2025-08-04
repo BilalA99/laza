@@ -58,11 +58,7 @@ const MenuItemDialog: React.FC<MenuItemDialogProps> = ({ children, imageSrc, tit
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             {/* Only render DialogTrigger if using internal state */}
-            {externalOpen === undefined && (
-                <DialogTrigger asChild>
-                    {children}
-                </DialogTrigger>
-            )}
+            {children}
             <DialogContent className="w-full lg:max-w-[calc(60%-2rem)] [&>button:last-child]:hidden max-h-[90vh] p-0 overflow-y-auto overflow-x-hidden rounded-3xl">
                 {/* Animated Added to Cart Confirmation */}
                 {showConfirmation && (

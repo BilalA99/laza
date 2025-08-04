@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lazadessert.cafe/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow important pages
+Allow: /menu
+Allow: /checkout
+Allow: /about
+Allow: /join-us
+Allow: /catering
+
+# Allow static assets
+Allow: /images/
+Allow: /desserts/
+Allow: /drinks/
+Allow: /icons/ 

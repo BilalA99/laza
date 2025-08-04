@@ -15,7 +15,7 @@ const addresses = [
     },
     {
         id: 2,
-        label: "25-33 Steinway St,\nLong Island City, NY",
+        label: "25-33 Steinway St,\nAstoria, NY",
     },
 ];
 

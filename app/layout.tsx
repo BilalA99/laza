@@ -21,10 +21,114 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Laza Desserts",
-  description: "Laza Desserts",
+  title: {
+    default: "Laza Dessert Cafe - Authentic Middle Eastern Desserts & Drinks",
+    template: "%s | Laza Dessert Cafe"
+  },
+  description: "Indulge in authentic Middle Eastern desserts at Laza Dessert Cafe. Fresh kunafa, crepes, shakes, and more. Order online for pickup or catering. Experience the sweet taste of tradition.",
+  keywords: [
+    "Middle Eastern desserts",
+    "kunafa",
+    "crepes",
+    "dessert cafe",
+    "authentic desserts",
+    "fresh desserts",
+    "dessert catering",
+    "dessert delivery",
+    "sweet treats",
+    "dessert shop",
+    "baklava",
+    "ferro shake",
+    "dessert menu",
+    "dessert restaurant"
+  ],
+  authors: [{ name: "Laza Dessert Cafe" }],
+  creator: "Laza Dessert Cafe",
+  publisher: "Laza Dessert Cafe",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://lazadessert.cafe'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://lazadessert.cafe',
+    siteName: 'Laza Dessert Cafe',
+    title: 'Laza Dessert Cafe - Authentic Middle Eastern Desserts & Drinks',
+    description: 'Indulge in authentic Middle Eastern desserts at Laza Dessert Cafe. Fresh kunafa, crepes, shakes, and more. Order online for pickup or catering.',
+    images: [
+      {
+        url: '/lazacafehero.png',
+        width: 1200,
+        height: 630,
+        alt: 'Laza Dessert Cafe - Authentic Middle Eastern Desserts',
+      },
+      {
+        url: '/lazabluelogo.png',
+        width: 512,
+        height: 512,
+        alt: 'Laza Dessert Cafe Logo',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Laza Dessert Cafe - Authentic Middle Eastern Desserts & Drinks',
+    description: 'Indulge in authentic Middle Eastern desserts at Laza Dessert Cafe. Fresh kunafa, crepes, shakes, and more.',
+    images: ['/lazacafehero.png'],
+    creator: '@lazacafe',
+    site: '@lazacafe',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+    yandex: 'your-yandex-verification-code',
+    yahoo: 'your-yahoo-verification-code',
+  },
   icons: {
-    icon: "/lazabluelogo.png",
+    icon: [
+      { url: '/lazabluelogo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/lazabluelogo.png', sizes: '16x16', type: 'image/png' },
+    ],
+    shortcut: '/lazabluelogo.png',
+    apple: [
+      { url: '/lazabluelogo.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/lazabluelogo.png',
+        color: '#1B3A6B',
+      },
+    ],
+  },
+  manifest: '/manifest.json',
+  category: 'food and beverage',
+  classification: 'restaurant',
+  other: {
+    'theme-color': '#1B3A6B',
+    'msapplication-TileColor': '#1B3A6B',
+    'msapplication-config': '/browserconfig.xml',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+    'apple-mobile-web-app-title': 'Laza Dessert Cafe',
+    'application-name': 'Laza Dessert Cafe',
+    'mobile-web-app-capable': 'yes',
   },
 };
 // Primary : #2C4B7E

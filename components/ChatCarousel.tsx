@@ -2,7 +2,9 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
+import Link from "next/link";
 
+const link = `https://order.toasttab.com/online/locations/e4e3218e-7ad2-411f-a156-ec157a00652f/default`
 export default function Carousel({ items }) {
   const [active, setActive] = useState(0);
   const containerRef = useRef(null);
@@ -92,9 +94,9 @@ export default function Carousel({ items }) {
                         {item.description}
                       </p>
                     </div>
-                    <button className="mt-4 text-blue-600 font-medium">
+                    <Link href={link} className="mt-4 text-blue-600 font-medium">
                       Add to cart +
-                    </button>
+                    </Link>
                   </motion.div>
                 )}
               </div>
