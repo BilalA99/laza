@@ -255,7 +255,7 @@ export default function JoinUsPage() {
                                     {errors.phone && <p className="text-red-500 text-xs">{errors.phone.message}</p>}
                                 </div>
                                 <div>
-                                    <label className="font-medium">City & state where you'd like to open the café</label>
+                                    <label className="font-medium">City & state of opening</label>
                                     <input {...register("cityState")}
                                         className="input w-full" placeholder="City, State" />
                                     {errors.cityState && <p className="text-red-500 text-xs">{errors.cityState.message}</p>}

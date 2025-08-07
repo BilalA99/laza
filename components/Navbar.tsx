@@ -37,7 +37,6 @@ export default function Navbar() {
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [sidebarOpen]);
-
     return (
         <nav
             className={`fixed top-0 left-0 w-full z-50  ${scrolled || pathname === "/menu" || pathname === "/about" || pathname == '/checkout' || pathname == '/join-us' ? "bg-white shadow text-[#2C4B7E]" : "bg-transparent text-white"

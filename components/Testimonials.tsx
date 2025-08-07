@@ -1,51 +1,34 @@
 'use client'
 import { useState, useEffect, useRef } from "react";
 import Google from "./icons/google";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
-const testimonials = [
-  {
-    name: "Deepika",
-    initial: "D",
-    time: "1 month ago",
-    text: "Everything here is so addictive. The vibes are cute and give such a luxe aesthetic. I came for the Dubai chocolate and ended up trying like five things. The desserts look gorgeous.",
-    stars: 5,
-  },
-  {
-    name: "AB",
-    initial: "A",
-    time: "1 month ago",
-    text: "This spot is actually fire. Vibe was clean, everything came out fresh. I got the Kunafa and it was amazing. Highly recommend for people looking for high quality desserts.",
-    stars: 5,
-  },
-  {
-    name: "Yassin",
-    initial: "Y",
-    time: "1 month ago",
-    text: "Staff was amazing. Really cool spot to hangout with friends and enjoy great desserts. Easily one of the best Kunafa I've tried so far. Worth the hype.",
-    stars: 5,
-  },
-  {
-    name: "Sarah",
-    initial: "S",
-    time: "2 weeks ago",
-    text: "Absolutely loved the ambiance and the desserts! The staff was super friendly and the Kunafa was out of this world. Will definitely come back!",
-    stars: 5,
-  },
-  {
-    name: "Michael",
-    initial: "M",
-    time: "3 weeks ago",
-    text: "A hidden gem! The Dubai chocolate is a must-try. The place is clean, modern, and the desserts are delicious.",
-    stars: 5,
-  },
-  {
-    name: "Fatima",
-    initial: "F",
-    time: "5 days ago",
-    text: "Best dessert cafe in town! The variety is amazing and everything tastes fresh. Highly recommend the shakes and Kunafa.",
-    stars: 5,
-  },
-];
+// Google Reviews Data - 5-star reviews only
+// Filter for 5-star reviews only
+// Google Review interface type for type safety and clarity
+
+export interface GoogleReview {
+  name: string; // review resource name
+  relativePublishTimeDescription: string; // e.g. "a month ago"
+  rating: number; // 1-5
+  text: {
+    text: string;
+    languageCode: string;
+  };
+  originalText?: {
+    text: string;
+    languageCode: string;
+  };
+  authorAttribution: {
+    displayName: string;
+    uri: string;
+    photoUri?: string;
+  };
+  publishTime: string; // ISO string
+  flagContentUri?: string;
+  googleMapsUri?: string;
+}
 
 function StarRow({ count = 5 }) {
   return (
@@ -57,36 +40,102 @@ function StarRow({ count = 5 }) {
   );
 }
 
-function TestimonialCard({ testimonial }: { testimonial: any }) {
+function TestimonialCard({ testimonial, index }: { testimonial: GoogleReview; index: number }) {
   return (
-    <div className="rounded-xl shadow p-6 xl:w-90 xl:h-70 w-80 h-70 flex flex-col border border-gray-200 transition-all duration-300"
+    <motion.div
+      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -20, scale: 0.95 }}
+      transition={{
+        duration: 0.6,
+        ease: "easeOut",
+        delay: index * 0.1 // Stagger the animations
+      }}
+      className="rounded-xl shadow p-6 xl:w-90 xl:h-70 w-80 h-70 flex flex-col border border-gray-200 transition-all duration-300"
       style={{
         background: 'rgba(241, 241, 241, 0.10)',
         boxShadow: ' 0px -2px 6px 0px rgba(0, 0, 0, 0.25) inset',
       }}
+
     >
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-lg font-bold text-[#2C4B7E] border border-gray-300">{testimonial.initial}</div>
+      <motion.div
+        className="flex items-center gap-3 mb-2"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+      >
+        {testimonial.authorAttribution.photoUri ? (
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+          >
+            <Image
+              src={testimonial.authorAttribution.photoUri}
+              alt={testimonial.name}
+              className="w-10 h-10 rounded-full border border-gray-300 object-cover"
+              width={40}
+              height={40}
+            />
+          </motion.div>
+        ) : (
+          <motion.div
+            className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-lg font-bold text-[#2C4B7E] border border-gray-300"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+          >
+            {testimonial.authorAttribution.displayName.charAt(0)}
+          </motion.div>
+        )}
         <div className="flex flex-col">
           <div className="flex items-center gap-2">
-            <span className="font-bold text-[#2C4B7E]">{testimonial.name}</span>
-            <Google />
+            <span className="font-bold text-[#2C4B7E]">{testimonial.authorAttribution.displayName}</span>
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+            >
+              <Google />
+            </motion.div>
           </div>
-          <span className="text-xs text-gray-500">{testimonial.time}</span>
+          <span className="text-xs text-gray-500">{testimonial.relativePublishTimeDescription}</span>
         </div>
-      </div>
-      <StarRow count={testimonial.stars} />
-      <p className="text-black text-lg leading-snug mt-1">{testimonial.text}</p>
-    </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+      >
+        <StarRow count={testimonial.rating} />
+      </motion.div>
+
+      <motion.p
+        className="text-black text-sm leading-relaxed mt-1 overflow-y-auto flex-1"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+      >
+        {testimonial.text.text.length > 200
+          ? `${testimonial.text.text.substring(0, 250)}...`
+          : testimonial.text.text
+        }
+      </motion.p>
+    </motion.div>
   );
 }
 
-export default function TestimonialsCarousel() {
+export default function TestimonialsCarousel({ reviews }: { reviews: GoogleReview[] }) {
+  if (reviews.length === 0) return null
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(3);
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
+  const autoAdvanceRef = useRef<NodeJS.Timeout | null>(null);
+  const [isAutoAdvancing, setIsAutoAdvancing] = useState(true);
+  const [direction, setDirection] = useState(0); // -1 for left, 1 for right, 0 for initial
 
   // Responsive visible count
   useEffect(() => {
@@ -102,13 +151,83 @@ export default function TestimonialsCarousel() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const maxIndex = testimonials.length - visible;
+  // Arrow navigation
+  function goPrev() {
+    if (canPrev) {
+      setDirection(-1);
+      setIndex(Math.max(0, index - visible)); // Move by visible count
+      pauseAutoAdvance();
+      resumeAutoAdvance();
+    }
+  }
+  function goNext() {
+    if (canNext) {
+      setDirection(1);
+      setIndex(Math.min(maxIndex, index + visible)); // Move by visible count
+      pauseAutoAdvance();
+      resumeAutoAdvance();
+    }
+  }
+
+  // Pagination dots
+  const pageCount = Math.ceil(reviews.length / visible); // Calculate pages based on visible count
+
+  const handleDotClick = (dotIndex: number) => {
+    setDirection(dotIndex > Math.floor(index / visible) ? 1 : -1);
+    setIndex(dotIndex * visible); // Move to the correct starting index
+    pauseAutoAdvance();
+    resumeAutoAdvance();
+  };
+
+  // Auto-advance timer
+  useEffect(() => {
+    if (!isAutoAdvancing) return;
+
+    const startAutoAdvance = () => {
+      autoAdvanceRef.current = setInterval(() => {
+        setDirection(1); // Right direction for auto-advance
+        setIndex((currentIndex) => {
+          const maxIndex = reviews.length - visible;
+          if (currentIndex >= maxIndex) {
+            return 0; // Loop back to first
+          }
+          return currentIndex + visible; // Move by visible count
+        });
+      }, 3000); // 10 seconds
+    };
+
+    startAutoAdvance();
+
+    return () => {
+      if (autoAdvanceRef.current) {
+        clearInterval(autoAdvanceRef.current);
+      }
+    };
+  }, [reviews.length, visible, isAutoAdvancing]);
+
+  // Pause auto-advance on user interaction
+  const pauseAutoAdvance = () => {
+    setIsAutoAdvancing(false);
+    if (autoAdvanceRef.current) {
+      clearInterval(autoAdvanceRef.current);
+    }
+  };
+
+  // Resume auto-advance after 5 seconds of no interaction
+  const resumeAutoAdvance = () => {
+    setTimeout(() => {
+      setIsAutoAdvancing(true);
+    }, 3000);
+  };
+
+  const maxIndex = reviews.length - visible;
   const canPrev = index > 0;
   const canNext = index < maxIndex;
 
   // Touch/swipe handlers
   function onTouchStart(e: React.TouchEvent) {
     touchStartX.current = e.touches[0].clientX;
+    pauseAutoAdvance();
   }
   function onTouchMove(e: React.TouchEvent) {
     touchEndX.current = e.touches[0].clientX;
@@ -117,86 +236,104 @@ export default function TestimonialsCarousel() {
     if (touchStartX.current !== null && touchEndX.current !== null) {
       const diff = touchStartX.current - touchEndX.current;
       if (diff > 50 && canNext) {
-        setIndex(index + 1);
+        setDirection(1);
+        setIndex(Math.min(maxIndex, index + visible)); // Move by visible count
       } else if (diff < -50 && canPrev) {
-        setIndex(index - 1);
+        setDirection(-1);
+        setIndex(Math.max(0, index - visible)); // Move by visible count
       }
     }
     touchStartX.current = null;
     touchEndX.current = null;
+    resumeAutoAdvance();
   }
-
-  // Arrow navigation
-  function goPrev() {
-    if (canPrev) setIndex(index - 1);
-  }
-  function goNext() {
-    if (canNext) setIndex(index + 1);
-  }
-
-  // Pagination dots
-  const pageCount = testimonials.length - visible + 1;
 
   return (
     <div className="w-full flex flex-col items-center relative">
-      <div className="flex flex-row gap-8 justify-center items-stretch w-full xl:px-0 px-4 relative"
+      <motion.div
+        className="flex flex-row gap-8 justify-center items-stretch w-full xl:px-0 px-4 relative"
         ref={containerRef}
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
+        key={index} // Force re-render for smooth transitions
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
       >
-        {/* Left Arrow */}
-        {/* {visible === 1 && (
-          <button
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 shadow hover:bg-[#2C4B7E]/10 transition xl:hidden"
-            onClick={goPrev}
-            disabled={!canPrev}
-            aria-label="Previous review"
-            style={{ opacity: canPrev ? 1 : 0.3 }}
-          >
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="#2C4B7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          </button>
-        )} */}
-        {testimonials.slice(index, index + visible).map((t, i) => (
-          <TestimonialCard testimonial={t} key={i + index} />
-        ))}
-        {/* Right Arrow */}
-        {/* {visible === 1 && (
-          <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 shadow hover:bg-[#2C4B7E]/10 transition xl:hidden"
-            onClick={goNext}
-            disabled={!canNext}
-            aria-label="Next review"
-            style={{ opacity: canNext ? 1 : 0.3 }}
-          >
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="#2C4B7E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          </button>
-        )} */}
-      </div>
+        <AnimatePresence mode="wait">
+          {reviews.slice(index, index + visible).map((t, i) => (
+            <TestimonialCard
+              testimonial={t}
+              key={`${index}-${i}`}
+              index={i}
+            />
+          ))}
+        </AnimatePresence>
+      </motion.div>
+
+      {/* Progress Bar */}
+      {/* <motion.div
+        className="w-full max-w-md mt-6"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+      >
+        <div className="bg-gray-200 rounded-full h-1 overflow-hidden">
+          <motion.div
+            className="bg-[#2C4B7E] h-1 rounded-full"
+            initial={{ width: 0 }}
+            animate={{
+              width: `${((index + 1) / pageCount) * 100}%`
+            }}
+            transition={{
+              duration: isAutoAdvancing ? 10 : 0.6,
+              ease: isAutoAdvancing ? "linear" : "easeOut"
+            }}
+          />
+        </div>
+      </motion.div> */}
+
       {/* Dots */}
-      <div className="flex flex-row gap-2 mt-8 items-center justify-center">
+      <motion.div
+        className="flex flex-row gap-2 mt-8 items-center justify-center"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 1 }}
+      >
         {Array.from({ length: pageCount }).map((_, i) => (
-          i === index ? (
-            <button
+          i === Math.floor(index / visible) ? (
+            <motion.button
               key={i}
-              className="relative w-4 h-4 flex items-center justify-center"
+              className="relative w-4 h-4 flex items-center justify-center rounded-full transition-all duration-300"
               aria-label={`Go to testimonials page ${i + 1}`}
-              onClick={() => setIndex(i)}
+              onClick={() => handleDotClick(i)}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <span className="absolute inset-0 rounded-full border-1 border-[#2C4B7E] bg-white"></span>
+              <motion.span
+                className="absolute inset-0 border-1 border-[#2C4B7E] rounded-full bg-white"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
               <span className="absolute inset-1 rounded-full bg-white"></span>
               <span className="absolute inset-2 w-3 h-3 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full bg-[#2C4B7E]"></span>
-            </button>
+            </motion.button>
           ) : (
-            <button
+            <motion.button
               key={i}
-              className="w-4 h-4 rounded-full bg-[#2C4B7E]"
+              className="w-4 h-4 rounded-full bg-[#2C4B7E] hover:bg-[#1B3A6B] transition-all duration-300"
               aria-label={`Go to testimonials page ${i + 1}`}
-              onClick={() => setIndex(i)}
+              onClick={() => handleDotClick(i)}
+              whileHover={{ scale: 1.2, backgroundColor: "#1B3A6B" }}
+              whileTap={{ scale: 0.9 }}
             />
           )
         ))}
-      </div>
+      </motion.div>
+
+      {/* Auto-advance indicator */}
+      {/* <div className="mt-4 text-xs text-[#2C4B7E]/70 flex items-center gap-2">
+        <div className={`w-2 h-2 rounded-full transition-all duration-300 ${isAutoAdvancing ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`}></div>
+        <span>{isAutoAdvancing ? 'Auto-advancing' : 'Paused'}</span>
+      </div> */}
     </div>
   );
 }

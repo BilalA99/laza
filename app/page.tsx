@@ -21,7 +21,9 @@ import GeminiCarousel from "@/components/GeminiCarousel";
 import GeminiCarouselSlide from "@/components/GeminiCarouselSlide";
 import GeminiCenterCarousel from "@/components/GeminiCenterCarousel";
 import GeminiCenter2Carousel from "@/components/GeminiCenter2Carousel";
+import { locations } from "@/lib/locations";
 import Link from "next/link";
+import getPlaceReviews from "./actions/get-google-reviews";
 const OPTIONS: EmblaOptionsType = { loop: true, watchResize: false, align: 'center', containScroll: 'trimSnaps' }
 const SLIDE_COUNT = 7
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
@@ -77,7 +79,9 @@ const featureItem = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const reviews = await getPlaceReviews()
+  console.log(reviews?.length)
   return (
     <main className="relative min-h-screen w-full">
       {/* Hero Section */}
@@ -429,7 +433,7 @@ export default function Home() {
           </FadeIn>
         </div>
         <h2 className="sm:text-6xl text-3xl font-[--font-playfair] mb-16 z-10 xl:mt-20 mt-0">Testimonials</h2>
-        <div className="z-10 sm:mt-10 "><TestimonialsCarousel /></div>
+        <div className="z-10 sm:mt-10 "><TestimonialsCarousel reviews={reviews} /></div>
         {/* Waffle image on the right */}
         <div className="absolute md:-bottom-20 right-0 sm:w-100 w-60 h-60 sm:h-100  pointer-events-none select-none ">
           <Image src="/waffle1.png" alt="Waffle" fill className="object-contain object-bottom" />

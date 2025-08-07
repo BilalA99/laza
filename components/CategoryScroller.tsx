@@ -81,7 +81,7 @@ const CategoryScroller = () => {
            </div>
           </div>
     
-          <section className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-y-10 my-20 w-full h-full ">
+          <section className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-y-10 gap-y-5 lg:gap-x-0 gap-x-5 my-20 w-full h-full ">
             {activeCategory.products.map((product) => (
               <MenuItemCard key={product.title} imageSrc={product.imageSrc} title={product.title} description={product.description} price={product.price} modifiers={product.modifiers} />
             ))}
