@@ -118,7 +118,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: GoogleReview; in
         transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
       >
         {testimonial.text.text.length > 200
-          ? `${testimonial.text.text.substring(0, 250)}...`
+          ? `${testimonial.text.text.substring(0, 200)}...`
           : testimonial.text.text
         }
       </motion.p>
@@ -142,6 +142,8 @@ export default function TestimonialsCarousel({ reviews }: { reviews: GoogleRevie
     function handleResize() {
       if (window.innerWidth >= 1280) {
         setVisible(3);
+      } else if (window.innerWidth >= 768) {
+        setVisible(2);
       } else {
         setVisible(1);
       }

@@ -81,7 +81,6 @@ const featureItem = [
 
 export default async function Home() {
   const reviews = await getPlaceReviews()
-  console.log(reviews?.length)
   return (
     <main className="relative min-h-screen w-full">
       {/* Hero Section */}
@@ -435,7 +434,7 @@ export default async function Home() {
         <h2 className="sm:text-6xl text-3xl font-[--font-playfair] mb-16 z-10 xl:mt-20 mt-0">Testimonials</h2>
         <div className="z-10 sm:mt-10 "><TestimonialsCarousel reviews={reviews} /></div>
         {/* Waffle image on the right */}
-        <div className="absolute md:-bottom-20 right-0 sm:w-100 w-60 h-60 sm:h-100  pointer-events-none select-none ">
+        <div className="absolute lg:-bottom-20 md:-bottom-40 -bottom-5 right-0 sm:w-100 w-60 h-60 sm:h-100  pointer-events-none select-none ">
           <Image src="/waffle1.png" alt="Waffle" fill className="object-contain object-bottom" />
         </div>
       </section>
