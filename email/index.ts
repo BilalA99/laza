@@ -36,9 +36,9 @@ export async function SendCateringConfirmationEmail(formData: CateringFormType) 
 
         // Send email to customer
         const { data, error } = await resend.emails.send({
-            from: 'Laza Dessert Cafe <catering@lazacafe.com>',
-            to: [formData.email],
-            subject: `Catering Inquiry Confirmation - ${inquiryNumber}`,
+            from: 'Laza Dessert Cafe <support@lazadessert.cafe>',
+            to: [formData.email, 'support@lazadessert.cafe'],
+            subject: `Catering Inquiry Confirmation - Laza Dessert Cafe`,
             react: React.createElement(LazaCateringConfirmation, { cateringData: emailData }),
         });
 
@@ -50,9 +50,9 @@ export async function SendCateringConfirmationEmail(formData: CateringFormType) 
         // Also send a copy to the business
         try {
             await resend.emails.send({
-                from: 'Laza Dessert Cafe <catering@lazacafe.com>',
+                from: 'Laza Dessert Cafe <support@lazadessert.cafe>',
                 to: ['catering@lazacafe.com'], // Replace with your actual catering email
-                subject: `New Catering Inquiry - ${inquiryNumber}`,
+                subject: `New Catering Inquiry - Laza Dessert Cafe`,
                 react: React.createElement(LazaCateringConfirmation, { cateringData: emailData }),
             });
         } catch (businessEmailError) {
@@ -70,8 +70,8 @@ export async function SendCateringConfirmationEmail(formData: CateringFormType) 
 export async function SendFranchiseInquiryEmail(formData: JoinUsForm) {
     try {
         const { data, error } = await resend.emails.send({
-            from: 'Laza Dessert Cafe <catering@lazadessert.cafe>',
-            to: [formData.email],
+            from: 'Laza Dessert Cafe <support@lazadessert.cafe>',
+            to: [formData.email, 'support@lazadessert.cafe'],
             subject: `New Franchise Inquiry - ${formData.phone}`,
             react: React.createElement(LazaFranchiseInquiry, { inquiryData: formData }),
         });
