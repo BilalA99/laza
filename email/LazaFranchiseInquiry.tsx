@@ -92,18 +92,14 @@ export const LazaFranchiseInquiry: React.FC<{ inquiryData: JoinUsForm }> = ({ in
                     {/* Inquiry Details */}
                     <Section style={inquirySection}>
                         <Heading style={inquiryTitle}>📋 Inquiry Details</Heading>
-                        <Row style={detailRow}>
-                            <Column style={detailColumnCentered}>
-                                <Section style={detailItemBox}>
-                                    <Text style={detailLabel}>Inquiry Date:</Text>
-                                    <Text style={detailValue}>{new Date().toLocaleDateString('en-US', {
-                                        year: 'numeric',
-                                        month: 'long',
-                                        day: 'numeric'
-                                    })}</Text>
-                                </Section>
-                            </Column>
-                        </Row>
+                        <Section style={fieldContainer}>
+                            <Text style={fieldLabel}>Inquiry Date:</Text>
+                            <Text style={detailValue}>{new Date().toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            })}</Text>
+                        </Section>
                     </Section>
 
                     {/* Contact Information */}
@@ -493,7 +489,7 @@ const bodyText = {
 
 const inquirySection = {
     backgroundColor: 'rgba(44, 75, 126, 0.05)',
-    padding: '35px',
+    padding: '20px',
     borderRadius: '20px',
     border: '2px solid #2C4B7E',
     marginBottom: '45px',
@@ -559,7 +555,7 @@ const detailValue = {
 
 const contactSection = {
     backgroundColor: '#ffffff',
-    padding: '35px',
+    padding: '20px',
     borderRadius: '20px',
     marginBottom: '45px',
     border: '2px solid rgba(44, 75, 126, 0.1)',
@@ -639,7 +635,7 @@ const fieldAnswer = {
     fontWeight: '600',
     margin: '8px 0 0 0',
     textAlign: 'center' as const,
-    padding: '15px 20px',
+    padding: '10px 10px',
     backgroundColor: 'rgba(44, 75, 126, 0.05)',
     borderRadius: '12px',
     border: '2px solid rgba(44, 75, 126, 0.1)',
@@ -648,7 +644,7 @@ const fieldAnswer = {
 
 const motivationSection = {
     backgroundColor: '#f8fafe',
-    padding: '35px',
+    padding: '20px',
     borderRadius: '20px',
     marginBottom: '45px',
     border: '2px solid rgba(44, 75, 126, 0.1)',
@@ -657,7 +653,7 @@ const motivationSection = {
 
 const experienceSection = {
     backgroundColor: 'rgba(44, 75, 126, 0.05)',
-    padding: '35px',
+    padding: '20px',
     borderRadius: '20px',
     marginBottom: '45px',
     border: '2px solid rgba(44, 75, 126, 0.15)',
@@ -666,7 +662,7 @@ const experienceSection = {
 
 const financialSection = {
     backgroundColor: '#f8fafe',
-    padding: '35px',
+    padding: '20px',
     borderRadius: '20px',
     marginBottom: '45px',
     border: '2px solid rgba(44, 75, 126, 0.1)',
@@ -675,7 +671,7 @@ const financialSection = {
 
 const timeframeSection = {
     backgroundColor: 'rgba(44, 75, 126, 0.05)',
-    padding: '35px',
+    padding: '20px',
     borderRadius: '20px',
     marginBottom: '45px',
     border: '2px solid rgba(44, 75, 126, 0.15)',
@@ -684,7 +680,7 @@ const timeframeSection = {
 
 const diligenceSection = {
     backgroundColor: '#f8fafe',
-    padding: '35px',
+    padding: '20px',
     borderRadius: '20px',
     marginBottom: '45px',
     border: '2px solid rgba(44, 75, 126, 0.1)',
@@ -693,7 +689,7 @@ const diligenceSection = {
 
 const commitmentSection = {
     backgroundColor: 'rgba(44, 75, 126, 0.05)',
-    padding: '35px',
+    padding: '20px',
     borderRadius: '20px',
     marginBottom: '45px',
     border: '2px solid rgba(44, 75, 126, 0.15)',
@@ -735,11 +731,9 @@ const stepBox = {
 
 const stepNumber = {
 
-    display: 'flex',
+    width: '100%',
+    height: '100%',
     textAlign: 'center' as const,
-    alignItems: 'center' as const,
-    justifyContent: 'center' as const,
-    margin: '0 auto 20px auto',
     color: '#2C4B7E',
     fontSize: '24px',
     fontWeight: '700',
