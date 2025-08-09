@@ -20,27 +20,60 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
+// Get the base URL for metadata (works both locally and in production)
+const getBaseUrl = () => {
+  if (process.env.NODE_ENV === 'development') {
+    return 'http://localhost:3000';
+  }
+  return 'https://lazadessert.cafe';
+};
+
+const baseUrl = getBaseUrl();
+
 export const metadata: Metadata = {
   title: {
-    default: "Laza Dessert Cafe - Authentic Middle Eastern Desserts & Drinks",
+    default: "Laza Dessert Cafe - Premium Middle Eastern Desserts & Drinks",
     template: "%s | Laza Dessert Cafe"
   },
-  description: "Indulge in authentic Middle Eastern desserts at Laza Dessert Cafe. Fresh kunafa, crepes, shakes, and more. Order online for pickup or catering. Experience the sweet taste of tradition.",
+  description: "Indulge in premium Middle Eastern desserts at Laza Dessert Cafe. Fresh kunafa, crepes, shakes, and more. Order online for pickup or catering. Experience the sweet taste of tradition.",
   keywords: [
-    "Middle Eastern desserts",
-    "kunafa",
-    "crepes",
-    "dessert cafe",
-    "authentic desserts",
-    "fresh desserts",
-    "dessert catering",
-    "dessert delivery",
-    "sweet treats",
-    "dessert shop",
-    "baklava",
-    "ferro shake",
-    "dessert menu",
-    "dessert restaurant"
+    "laza dessert cafe",
+    "laza dessert cafe nyc",
+    "laza dessert cafe queens",
+    "laza dessert cafe astoria",
+    "laza dessert cafe brooklyn",
+    "laza dessert cafe bay ridge",
+    "laza dessert cafe steinway",
+    "laza dessert cafe 5th ave",
+    "laza dessert cafe near me",
+    "laza dessert cafe hours",
+    "directions to laza dessert cafe astoria",
+    "directions to laza dessert cafe bay ridge",
+    "laza dessert cafe order online",
+    "laza dessert cafe delivery",
+    "laza dessert cafe pickup",
+    "laza by chocolate factory",
+    "laza formerly chocolate factory",
+    "chocolate factory",
+    "the chocolate factory",
+    "chocolate factory nyc",
+    "chocolate factory queens",
+    "chocolate factory astoria",
+    "chocolate factory steinway",
+    "chocolate factory steinway street",
+    "chocolate factory brooklyn",
+    "chocolate factory bay ridge",
+    "chocolate factory 5th ave",
+    "chocolate factory near me",
+    "chocolate factory open late",
+    "chocolate factory open till 2am",
+    "chocolate factory hours",
+    "directions to chocolate factory astoria",
+    "directions to chocolate factory bay ridge",
+    "chocolate factory order online",
+    "chocolate factory delivery",
+    "chocolate factory pickup",
+    "chocolate factory new name laza"
   ],
   authors: [{ name: "Laza Dessert Cafe" }],
   creator: "Laza Dessert Cafe",
@@ -50,38 +83,29 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://lazadessert.cafe'),
-  alternates: {
-    canonical: '/',
-  },
+  metadataBase: new URL(baseUrl),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://lazadessert.cafe',
+    url: baseUrl,
     siteName: 'Laza Dessert Cafe',
-    title: 'Laza Dessert Cafe - Authentic Middle Eastern Desserts & Drinks',
-    description: 'Indulge in authentic Middle Eastern desserts at Laza Dessert Cafe. Fresh kunafa, crepes, shakes, and more. Order online for pickup or catering.',
+    title: 'Laza Dessert Cafe - Premium Middle Eastern Desserts & Drinks',
+    description: 'Indulge in premium Middle Eastern desserts at Laza Dessert Cafe. Fresh kunafa, crepes, shakes, and more. Order online for pickup or catering.',
     images: [
       {
-        url: '/lazacafehero.png',
+        url: `${baseUrl}/default_og.png`,
         width: 1200,
         height: 630,
-        alt: 'Laza Dessert Cafe - Authentic Middle Eastern Desserts',
-      },
-      {
-        url: '/lazabluelogo.png',
-        width: 512,
-        height: 512,
-        alt: 'Laza Dessert Cafe Logo',
+        alt: 'Laza Dessert Cafe - Premium Middle Eastern Desserts',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Laza Dessert Cafe - Authentic Middle Eastern Desserts & Drinks',
-    description: 'Indulge in authentic Middle Eastern desserts at Laza Dessert Cafe. Fresh kunafa, crepes, shakes, and more.',
-    images: ['/lazacafehero.png'],
-    creator: '@lazacafe',
+    title: 'Laza Dessert Cafe - Premium Middle Eastern Desserts & Drinks',
+    description: 'Indulge in premium Middle Eastern desserts at Laza Dessert Cafe. Fresh kunafa, crepes, shakes, and more.',
+    images: [`${baseUrl}/default_og.png`],
+    creator: '@laza.cafe',
     site: '@lazacafe',
   },
   robots: {

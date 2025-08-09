@@ -23,8 +23,8 @@ const locations = [
 ];
 
 const socialLinks = [
-    { href: "https://tiktok.com", icon: "/tiktok.png", label: "TikTok" },
-    { href: "https://instagram.com", icon: "/insta.png", label: "Instagram" },
+    { href: "https://www.tiktok.com/@lazacafe", icon: "/tiktok.png", label: "TikTok" },
+    { href: "https://www.instagram.com/laza.cafe", icon: "/insta.png", label: "Instagram" },
 ];
 
 export default function Footer() {

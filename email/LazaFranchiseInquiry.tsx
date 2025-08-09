@@ -430,7 +430,7 @@ export const LazaFranchiseInquiry: React.FC<{ inquiryData: JoinUsForm }> = ({ in
                             </Text>
                             <Row style={socialRow} className='grid grid-cols-2 gap-4'>
                                 <Column style={socialColumn}>
-                                    <Link href="https://instagram.com/lazacafe">
+                                    <Link href="https://www.instagram.com/laza.cafe">
                                         <Img
                                             src="https://lazadessert.cafe/insta.png"
                                             width="40"
@@ -441,7 +441,7 @@ export const LazaFranchiseInquiry: React.FC<{ inquiryData: JoinUsForm }> = ({ in
                                     </Link>
                                 </Column>
                                 <Column style={socialColumn}>
-                                    <Link href="https://tiktok.com/@lazacafe">
+                                    <Link href="https://www.tiktok.com/@lazacafe">
                                         <Img
                                             src="https://lazadessert.cafe/tiktok.png"
                                             width="40"

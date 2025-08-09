@@ -262,7 +262,7 @@ export const LazaCateringConfirmation = ({ cateringData }: { cateringData: Cater
                             We look forward to making your event truly memorable with our delicious desserts.
                         </Text>
                         <Row style={socialRow} className='grid grid-cols-2 gap-4'>
-                            <Link href="https://instagram.com/lazacafe">
+                            <Link href="https://www.instagram.com/laza.cafe">
                                 <Img
                                     src={`${url}/insta.png`}
                                     width="40"
@@ -271,7 +271,7 @@ export const LazaCateringConfirmation = ({ cateringData }: { cateringData: Cater
                                     style={socialIcon}
                                 />
                             </Link>
-                            <Link href="https://tiktok.com/@lazacafe">
+                            <Link href="https://www.tiktok.com/@lazacafe">
                                 <Img
                                     src={`${url}/tiktok.png`}
                                     width="40"

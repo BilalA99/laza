@@ -24,6 +24,17 @@ import GeminiCenter2Carousel from "@/components/GeminiCenter2Carousel";
 import { locations } from "@/lib/locations";
 import Link from "next/link";
 import getPlaceReviews from "./actions/get-google-reviews";
+
+// Get the base URL for metadata (works both locally and in production)
+const getBaseUrl = () => {
+  if (process.env.NODE_ENV === 'development') {
+    return 'http://localhost:3000';
+  }
+  return 'https://lazadessert.cafe';
+};
+
+const baseUrl = getBaseUrl();
+
 const OPTIONS: EmblaOptionsType = { loop: true, watchResize: false, align: 'center', containScroll: 'trimSnaps' }
 const SLIDE_COUNT = 7
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
@@ -83,7 +94,442 @@ export default async function Home() {
   const reviews = await getPlaceReviews()
   console.log(reviews?.length)
   return (
-    <main className="relative min-h-screen w-full">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Laza Dessert Cafe",
+            "alternateName": ["Chocolate Factory", "The Chocolate Factory", "Laza by Chocolate Factory"],
+            "description": "Premium Middle Eastern desserts including kunafa, crepes, waffles, shakes, and more. Open daily 2:00 PM - 2:00 AM.",
+            "url": baseUrl,
+            "logo": `${baseUrl}/lazabluelogo.png`,
+            "image": `${baseUrl}/default_og.png`,
+            "telephone": ["+1 347 560 6080", "+1 347 507 1087"],
+            "address": [
+              {
+                "@type": "PostalAddress",
+                "streetAddress": "6740 5th Ave",
+                "addressLocality": "Brooklyn",
+                "addressRegion": "NY",
+                "postalCode": "11220",
+                "addressCountry": "US"
+              },
+              {
+                "@type": "PostalAddress", 
+                "streetAddress": "25-33 Steinway St",
+                "addressLocality": "Queens",
+                "addressRegion": "NY",
+                "postalCode": "11103",
+                "addressCountry": "US"
+              }
+            ],
+            "openingHours": "Mo-Su 14:00-02:00",
+            "priceRange": "$$",
+            "servesCuisine": ["Middle Eastern", "Desserts", "Coffee", "Shakes"],
+            "hasMenu": `${baseUrl}/menu`,
+            "sameAs": [
+              "https://www.instagram.com/laza.cafe",
+              "https://www.tiktok.com/@lazacafe"
+            ],
+            "department": [
+              {
+                "@type": "Restaurant",
+                "name": "Laza Dessert Cafe Brooklyn",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "6740 5th Ave",
+                  "addressLocality": "Brooklyn", 
+                  "addressRegion": "NY",
+                  "postalCode": "11220",
+                  "addressCountry": "US"
+                },
+                "telephone": "+1 347 560 6080",
+                "openingHours": "Mo-Su 14:00-02:00"
+              },
+              {
+                "@type": "Restaurant",
+                "name": "Laza Dessert Cafe Queens",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "25-33 Steinway St",
+                  "addressLocality": "Queens",
+                  "addressRegion": "NY", 
+                  "postalCode": "11103",
+                  "addressCountry": "US"
+                },
+                "telephone": "+1 347 507 1087",
+                "openingHours": "Mo-Su 14:00-02:00"
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Restaurant",
+            "name": "Laza Dessert Cafe Brooklyn",
+            "alternateName": ["Chocolate Factory", "The Chocolate Factory", "Laza by Chocolate Factory"],
+            "description": "Premium Middle Eastern desserts in Bay Ridge, Brooklyn. Fresh kunafa, crepes, waffles, and shakes. Open daily 2:00 PM - 2:00 AM.",
+            "url": `${baseUrl}/brooklyn`,
+            "logo": `${baseUrl}/lazabluelogo.png`,
+            "image": `${baseUrl}/default_og.png`,
+            "telephone": "+1 347 560 6080",
+            "email": "brooklyn@lazadessert.cafe",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "6740 5th Ave",
+              "addressLocality": "Brooklyn",
+              "addressRegion": "NY",
+              "postalCode": "11220",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 40.6347,
+              "longitude": -74.0167
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "14:00",
+                "closes": "02:00"
+              }
+            ],
+            "priceRange": "$$",
+            "servesCuisine": ["Middle Eastern", "Desserts", "Coffee", "Shakes", "Beverages"],
+            "hasMenu": `${baseUrl}/menu`,
+            "menu": `${baseUrl}/menu`,
+            "acceptsReservations": false,
+            "deliveryAvailable": true,
+            "takeoutAvailable": true,
+            "dineInAvailable": true,
+            "wheelchairAccessible": true,
+            "parkingAvailable": true,
+            "parkingType": "Street Parking",
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Bay Ridge",
+                "sameAs": "https://en.wikipedia.org/wiki/Bay_Ridge,_Brooklyn"
+              },
+              {
+                "@type": "City",
+                "name": "Brooklyn",
+                "sameAs": "https://en.wikipedia.org/wiki/Brooklyn"
+              },
+              {
+                "@type": "City",
+                "name": "New York City",
+                "sameAs": "https://en.wikipedia.org/wiki/New_York_City"
+              }
+            ],
+            "amenityFeature": [
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Free WiFi",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Street Parking",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Late Night Hours",
+                "value": true
+              }
+            ],
+            "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Digital Wallet"],
+            "currenciesAccepted": "USD",
+            "sameAs": [
+              "https://www.instagram.com/laza.cafe",
+              "https://www.tiktok.com/@lazacafe"
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Restaurant",
+            "name": "Laza Dessert Cafe Queens",
+            "alternateName": ["Chocolate Factory", "The Chocolate Factory", "Laza by Chocolate Factory"],
+            "description": "Premium Middle Eastern desserts in Astoria, Queens. Fresh kunafa, crepes, waffles, and shakes. Open daily 2:00 PM - 2:00 AM.",
+            "url": `${baseUrl}/queens`,
+            "logo": `${baseUrl}/lazabluelogo.png`,
+            "image": `${baseUrl}/default_og.png`,
+            "telephone": "+1 347 507 1087",
+            "email": "queens@lazadessert.cafe",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "25-33 Steinway St",
+              "addressLocality": "Queens",
+              "addressRegion": "NY",
+              "postalCode": "11103",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 40.7648,
+              "longitude": -73.9208
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "14:00",
+                "closes": "02:00"
+              }
+            ],
+            "priceRange": "$$",
+            "servesCuisine": ["Middle Eastern", "Desserts", "Coffee", "Shakes", "Beverages"],
+            "hasMenu": `${baseUrl}/menu`,
+            "menu": `${baseUrl}/menu`,
+            "acceptsReservations": false,
+            "deliveryAvailable": true,
+            "takeoutAvailable": true,
+            "dineInAvailable": true,
+            "wheelchairAccessible": true,
+            "parkingAvailable": true,
+            "parkingType": "Street Parking",
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Astoria",
+                "sameAs": "https://en.wikipedia.org/wiki/Astoria,_Queens"
+              },
+              {
+                "@type": "City",
+                "name": "Queens",
+                "sameAs": "https://en.wikipedia.org/wiki/Queens"
+              },
+              {
+                "@type": "City",
+                "name": "New York City",
+                "sameAs": "https://en.wikipedia.org/wiki/New_York_City"
+              }
+            ],
+            "amenityFeature": [
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Free WiFi",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Street Parking",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Late Night Hours",
+                "value": true
+              }
+            ],
+            "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Digital Wallet"],
+            "currenciesAccepted": "USD",
+            "sameAs": [
+              "https://www.instagram.com/laza.cafe",
+              "https://www.tiktok.com/@lazacafe"
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Laza Dessert Cafe",
+            "description": "Premium Middle Eastern desserts including kunafa, crepes, waffles, shakes, and more. Open daily 2:00 PM - 2:00 AM.",
+            "url": baseUrl,
+            "logo": `${baseUrl}/lazabluelogo.png`,
+            "image": `${baseUrl}/default_og.png`,
+            "telephone": ["+1 347 560 6080", "+1 347 507 1087"],
+            "email": "info@lazadessert.cafe",
+            "foundingDate": "2020",
+            "numberOfEmployees": "15-25",
+            "currenciesAccepted": "USD",
+            "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Digital Wallet"],
+            "priceRange": "$$",
+            "servesCuisine": ["Middle Eastern", "Desserts", "Coffee", "Shakes", "Beverages"],
+            "hasMenu": `${baseUrl}/menu`,
+            "menu": `${baseUrl}/menu`,
+            "acceptsReservations": false,
+            "deliveryAvailable": true,
+            "takeoutAvailable": true,
+            "dineInAvailable": true,
+            "wheelchairAccessible": true,
+            "parkingAvailable": true,
+            "parkingType": "Street Parking",
+            "amenityFeature": [
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Free WiFi",
+                "value": true
+              },
+              {
+                "@type": "LocationFeatureSpecification", 
+                "name": "Outdoor Seating",
+                "value": false
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                "name": "Late Night Hours",
+                "value": true
+              }
+            ],
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Brooklyn",
+                "sameAs": "https://en.wikipedia.org/wiki/Brooklyn"
+              },
+              {
+                "@type": "City", 
+                "name": "Queens",
+                "sameAs": "https://en.wikipedia.org/wiki/Queens"
+              },
+              {
+                "@type": "City",
+                "name": "New York City",
+                "sameAs": "https://en.wikipedia.org/wiki/New_York_City"
+              }
+            ],
+            "serviceArea": {
+              "@type": "GeoCircle",
+              "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 40.7128,
+                "longitude": -74.0060
+              },
+              "geoRadius": "50000"
+            },
+            "sameAs": [
+              "https://www.instagram.com/laza.cafe",
+              "https://www.tiktok.com/@lazacafe"
+            ],
+            "location": [
+              {
+                "@type": "Place",
+                "name": "Laza Dessert Cafe Brooklyn",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "6740 5th Ave",
+                  "addressLocality": "Brooklyn",
+                  "addressRegion": "NY", 
+                  "postalCode": "11220",
+                  "addressCountry": "US"
+                },
+                "telephone": "+1 347 560 6080",
+                "openingHours": "Mo-Su 14:00-02:00",
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 40.6347,
+                  "longitude": -74.0167
+                },
+                "publicAccess": true,
+                "amenityFeature": [
+                  {
+                    "@type": "LocationFeatureSpecification",
+                    "name": "Street Parking",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "@type": "Place",
+                "name": "Laza Dessert Cafe Queens", 
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "25-33 Steinway St",
+                  "addressLocality": "Queens",
+                  "addressRegion": "NY",
+                  "postalCode": "11103", 
+                  "addressCountry": "US"
+                },
+                "telephone": "+1 347 507 1087",
+                "openingHours": "Mo-Su 14:00-02:00",
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 40.7648,
+                  "longitude": -73.9208
+                },
+                "publicAccess": true,
+                "amenityFeature": [
+                  {
+                    "@type": "LocationFeatureSpecification",
+                    "name": "Street Parking",
+                    "value": true
+                  }
+                ]
+              }
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Dessert Menu",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Product",
+                    "name": "Kunafa",
+                    "description": "Traditional Middle Eastern dessert with cheese and syrup"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Product", 
+                    "name": "Crepes",
+                    "description": "Sweet and savory crepes with various fillings"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Product",
+                    "name": "Milkshakes",
+                    "description": "Premium milkshakes with unique flavors"
+                  }
+                }
+              ]
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "14:00",
+                "closes": "02:00"
+              }
+            ],
+            "specialOpeningHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Friday", "Saturday"],
+                "opens": "14:00",
+                "closes": "02:00",
+                "description": "Extended hours on weekends"
+              }
+            ]
+          })
+        }}
+      />
+      <main className="relative min-h-screen w-full">
+      {/* Hidden H1 for SEO - not visible on UI */}
+      <h1 className="sr-only">Laza Dessert Cafe - Premium Desserts, Crepes, Waffles, and Kunafa</h1>
+      
       {/* Hero Section */}
       <section className="relative aspect-video h-full w-full lg:h-auto min-h-100 ">
         {/* Background Video */}
@@ -433,7 +879,7 @@ export default async function Home() {
           </FadeIn>
         </div>
         <h2 className="sm:text-6xl text-3xl font-[--font-playfair] mb-16 z-10 xl:mt-20 mt-0">Testimonials</h2>
-        <div className="z-10 sm:mt-10 "><TestimonialsCarousel reviews={reviews} /></div>
+        <div className="z-10 sm:mt-10 "><TestimonialsCarousel reviews={reviews || []} /></div>
         {/* Waffle image on the right */}
         <div className="absolute md:-bottom-20 right-0 sm:w-100 w-60 h-60 sm:h-100  pointer-events-none select-none ">
           <Image src="/waffle1.png" alt="Waffle" fill className="object-contain object-bottom" />
@@ -483,5 +929,6 @@ export default async function Home() {
         </div>
       </section>
     </main>
+    </>
   );
 }

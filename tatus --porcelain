@@ -1,0 +1,10 @@
+app/about/page.tsx
+app/catering/page.tsx
+app/join-us/page.tsx
+app/layout.tsx
+app/menu/page.tsx
+app/page.tsx
+components/Footer.tsx
+email/LazaCateringConfirmation.tsx
+email/LazaFranchiseInquiry.tsx
+public/manifest.json
