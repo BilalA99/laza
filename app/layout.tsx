@@ -63,16 +63,10 @@ export const metadata: Metadata = {
     description: 'Indulge in authentic Middle Eastern desserts at Laza Dessert Cafe. Fresh kunafa, crepes, shakes, and more. Order online for pickup or catering.',
     images: [
       {
-        url: '/lazacafehero.png',
+        url: '/logosocial.png',
         width: 1200,
         height: 630,
         alt: 'Laza Dessert Cafe - Authentic Middle Eastern Desserts',
-      },
-      {
-        url: '/lazabluelogo.png',
-        width: 512,
-        height: 512,
-        alt: 'Laza Dessert Cafe Logo',
       }
     ],
   },
