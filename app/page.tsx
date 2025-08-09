@@ -101,7 +101,7 @@ export default async function Home() {
           {/* Slight overlay for contrast */}
         </div>
 
-        <div className="relative z-10 flex flex-col sm:items-start items-center lg:px-20 px-4 space-y-8 sm:justify-center justify-end sm:h-full h-100 py-4 ">
+        <div className="relative z-10 flex flex-col sm:items-start items-center lg:px-20 px-4 sm:space-y-8 space-y-4 sm:pb-0 pb-4 sm:justify-center justify-end sm:h-full h-100 py-4 ">
           <FadeIn className="sm:w-fit sm:h-fit w-40"><Image src="/lazacafehero.png" alt="Laza Desserts" width={400} height={400} /></FadeIn>
           <FadeIn className="sm:w-fit w-full h-fit sm:text-start text-center">
             <p className="text-white ml-3 sm:text-3xl text-2xl">
