@@ -117,7 +117,7 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
     };
 
     return (
-        <div className="flex flex-col items-center justify-centerfont-sans p-4 overflow-hidden">
+        <div className="flex flex-col items-center justify-center overflow-hidden">
             <div
                 className="w-full max-w-8xl relative select-none [mask-composite:intersect] sm:[mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]"
                 onMouseEnter={() => setIsPaused(true)}
@@ -125,7 +125,6 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
             >
                 {/* Viewport container - this creates the visible window */}
                 <div ref={viewportRef} className="overflow-hidden cursor-grab select-none"
-
                 >
                     {/* Carousel container - this is the element that moves */}
                     <div

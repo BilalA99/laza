@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Roboto } from "next/font/google";
+import { Inter, Playfair_Display, Roboto, Reem_Kufi } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import '@/components/embla.css'
@@ -18,6 +18,11 @@ const playfair = Playfair_Display({
 const roboto = Roboto({
   subsets: ["latin"],
   variable: "--font-roboto",
+});
+
+const reem = Reem_Kufi({
+  subsets: ["latin"],
+  variable: "--font-reem",
 });
 
 export const metadata: Metadata = {

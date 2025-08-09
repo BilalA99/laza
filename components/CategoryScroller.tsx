@@ -123,7 +123,7 @@ const CategoryScroller = () => {
         {/* Scroll arrow button */}
         <div className="xl:hidden block">
           <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 "
+            className="absolute right-0 -top-1/1 md:-top-[145%] -translate-y-1/2 "
             style={{ display: 'block' }}
             onClick={handleCategoryClickButton}
             aria-label="Scroll categories right"

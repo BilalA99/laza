@@ -84,26 +84,26 @@ export default async function Home() {
   return (
     <main className="relative min-h-screen w-full">
       {/* Hero Section */}
-      <section className="relative aspect-video h-full w-full lg:h-auto min-h-100 ">
+      <section className="relative aspect-video  w-full lg:h-auto sm:min-h-100 h-[80vh]">
         {/* Background Video */}
-        <div className="absolute inset-0 w-full h-full">
+        <div className="absolute inset-0 w-full sm:h-full h-[80vh]">
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="w-full sm:h-full h-100 object-cover sm:object-center object-left"
+            className="w-full sm:h-full h-[80vh] object-cover sm:object-center object-left"
           >
             <source src="/herovideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="absolute inset-0 bg-black/40 sm:h-auto h-100"></div>{" "}
+          <div className="absolute inset-0 bg-black/40 sm:h-auto h-[80vh]"></div>{" "}
           {/* Slight overlay for contrast */}
         </div>
 
-        <div className="relative z-10 flex flex-col sm:items-start items-center lg:px-20 px-4 sm:space-y-8 space-y-4 sm:pb-0 pb-5 sm:justify-center justify-end sm:h-full h-100 py-4 ">
+        <div className="relative z-10 flex flex-col sm:items-start items-center lg:px-20 px-4 sm:space-y-8 space-y-4 sm:pb-0  sm:justify-center justify-center sm:h-full h-[80vh] py-4 ">
           <FadeIn className="sm:w-fit sm:h-fit w-40"><Image src="/lazacafehero.png" alt="Laza Desserts" width={400} height={400} /></FadeIn>
-          <FadeIn className="sm:w-fit w-full h-fit sm:text-start text-center">
+          <FadeIn className="sm:w-fit w-full h-fit sm:text-start text-center ">
             <p className="text-white ml-3 sm:text-3xl text-2xl">
               WE ARE OPEN FROM <br />
               <span className="font-bold">Sunday - Saturday</span>:<br className="sm:hidden block" /> 2:00pm - 2:00am
@@ -114,7 +114,7 @@ export default async function Home() {
       </section>
 
       {/* Most Wanted Section */}
-      <section className="relative aspect-video h-full w-full items-center justify-center overflow-hidden min-h-220" >
+      <section className="relative aspect-video h-full w-full items-center justify-center overflow-hidden sm:min-h-220 min-h-180" >
         {/* Gradient + Image background */}
         <FadeIn className="relative ">
           <div className="absolute top-0 md:w-225 w-70 md:h-200 h-70 -z-20 md:right-20 right-0 "
@@ -124,8 +124,8 @@ export default async function Home() {
         </FadeIn>
 
         <div className="flex flex-col items-center justify-start w-full h-fit space-y-10 md:px-20 px-4 sm:pt-40 pt-20 z-10">
-          <p className="font-[--font-playfair] text-black md:text-7xl text-4xl text-center">Most Wanted of the Week</p>
-          <p className=" text-black text-xl sm:w-[50%] text-center ">Handcrafted indulgences that captured the spotlight, each bite<br />
+          <p className="font-[--font-playfair] text-black md:text-7xl text-4xl text-center">Most Popular of the Week</p>
+          <p className="text-black text-xl sm:w-[50%] text-center">Handcrafted indulgences in the spotlight.<br />
             a testament to dessert artistry at <span className="text-[#2C4B7E] font-[--font-playfair]">Laza.</span>
           </p>
         </div>
