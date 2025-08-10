@@ -2,8 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 import FadeIn from '@/components/FadeIn'
 import OrderNowButton from '@/components/OrderNowButton'
-import FAQSection from '@/components/FAQSection'
 import MenuImageCard from '@/components/MenuImageCard'
+import FAQsSections from '@/components/FAQSections'
+
 const AboutUs = () => {
     return (
         <main className='flex flex-col items-center justify-center w-full overflow-hidden '>
@@ -89,7 +90,8 @@ const AboutUs = () => {
 
 
                 <div className='flex flex-row items-center justify-center w-full h-full mt-50 '>
-                    <FAQSection />
+                    {/* <FAQSection /> */}
+                    <FAQsSections />
                 </div>
             </section>
 

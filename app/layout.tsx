@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Roboto, Reem_Kufi } from "next/font/google";
+import { Inter, Playfair_Display, Roboto, Bodoni_Moda, EB_Garamond,Cardo,Yeseva_One} from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import '@/components/embla.css'
@@ -20,10 +20,36 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
-const reem = Reem_Kufi({
+const bodoni = Bodoni_Moda({
   subsets: ["latin"],
-  variable: "--font-reem",
+  variable: "--font-bodoni",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+
 });
+
+const ebgaramond = EB_Garamond({
+  subsets: ["latin"],
+  variable: "--font-ebgaramond",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const cardo = Cardo({
+  subsets: ["latin"],
+  variable: "--font-cardo",
+  weight: ["400", "700"],
+  display: "swap",
+});
+
+const yeseva = Yeseva_One({
+  subsets: ["latin"],
+  variable: "--font-yeseva",
+  weight: ["400"],
+  display: "swap",
+});
+
+
 
 export const metadata: Metadata = {
   title: {
@@ -146,7 +172,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" /></head>
       <body
-        className={`${inter.variable} ${playfair.variable} ${roboto.variable} antialiased w-full overflow-none`}
+        className={`${inter.variable} ${playfair.variable} ${roboto.variable} ${bodoni.variable} ${ebgaramond.variable} ${cardo.variable} ${yeseva.variable} antialiased w-full overflow-none`}
       >
         <Navbar />
         {children}
