@@ -29,7 +29,7 @@ const PaymentForm: React.FC = () => {
         <section className="mt-12">
             <h2 className="text-2xl font-500 mb-2">Payment Method</h2>
             <div className="h-[3px] w-full bg-[#2C4B7E] mb-8" style={{ maxWidth: 900 }} />
-            <form onSubmit={handleSubmit(onSubmit)} className="max-w-3xl">
+            <form id="payment_form" onSubmit={handleSubmit(onSubmit)} className="max-w-3xl">
                 {/* <button type="button" style={{boxShadow : '0px 2px 8px 2px rgba(0, 0, 0, 0.40) inset'}} className="w-full bg-[#2C4B7E] text-white text-2xl font-medium  py-4 mb-10">Credit / Debit Card</button> */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 mb-8">
                     <div>
@@ -83,9 +83,14 @@ const PaymentForm: React.FC = () => {
                         {errors.zip && <p className="text-red-500 text-sm mt-1">{errors.zip.message}</p>}
                     </div>
                 </div>
-                <button type="submit" className="w-full bg-[#2C4B7E] text-white text-2xl font-medium rounded-[30px] hover:scale-105 transition-all duration-300 cursor-pointer py-4 mt-8" 
-                style={{boxShadow : '0px 2px 8px 2px rgba(0, 0, 0, 0.40) inset'}} 
-                >Place Pickup Order</button>
+                <button 
+                    id="payment-submit-btn"
+                    type="submit" 
+                    className="w-full bg-[#2C4B7E] text-white text-2xl font-medium rounded-[30px] hover:scale-105 transition-all duration-300 cursor-pointer py-4 mt-8" 
+                    style={{boxShadow : '0px 2px 8px 2px rgba(0, 0, 0, 0.40) inset'}} 
+                >
+                    Place Pickup Order
+                </button>
             </form>
         </section>
     );

@@ -344,7 +344,7 @@ export default function JoinUsPage() {
                     </div>
                     <h1 className="text-3xl font-[--font-playfair] text-[#2C4B7E] mb-6 text-center">Join the Laza Café Family</h1>
 
-                    <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
+                    <form id="franchise_form" className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
                         {/* 1. Contact & Basics */}
                         <section>
                             <h2 className="text-xl font-bold text-[#2C4B7E] mb-2">1. Contact & Basics</h2>
@@ -576,7 +576,12 @@ export default function JoinUsPage() {
                                 </div>
                             </div>
                         </section>
-                        <button type="submit" disabled={isSubmitting} className="w-full bg-[#2C4B7E] text-white font-bold py-3 rounded-xl mt-6 hover:bg-[#1a2d4d] transition">
+                        <button 
+                            id="franchise-submit-btn"
+                            type="submit" 
+                            disabled={isSubmitting} 
+                            className="w-full bg-[#2C4B7E] text-white font-bold py-3 rounded-xl mt-6 hover:bg-[#1a2d4d] transition"
+                        >
                             {isSubmitting ? 'Submitting...' : 'Submit Application'}
                         </button>
                     </form>
