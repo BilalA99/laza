@@ -134,7 +134,7 @@ const OrderForm: React.FC = () => {
     return (
         <>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="mx-auto w-full p-4 md:p-8">
+                <form id="catering_form" onSubmit={form.handleSubmit(onSubmit)} className="mx-auto w-full p-4 md:p-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <FormField
                             control={form.control}
@@ -295,13 +295,14 @@ const OrderForm: React.FC = () => {
                         />
                     </div>
                     <div className="mt-10 flex justify-start">
-                        <Button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className="bg-[#2C4B7E] text-white text-lg font-semibold rounded-full px-12 py-3 shadow-md hover:bg-[#1e3356] transition disabled:opacity-60"
+                        <button 
+                            id="catering-submit-btn"
+                            type="submit" 
+                            disabled={isSubmitting} 
+                            className="w-full bg-[#2C4B7E] text-white font-bold py-3 rounded-xl hover:bg-[#1a2d4d] transition"
                         >
-                            {isSubmitting ? 'Sending...' : 'Submit Inquiry'}
-                        </Button>
+                            {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
+                        </button>
                     </div>
                 </form>
             </Form>
