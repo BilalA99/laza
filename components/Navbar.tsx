@@ -69,10 +69,10 @@ export default function Navbar() {
                 </div>
                 {/* Right Side (desktop) */}
                 <div className="xl:flex hidden items-center gap-10">
-                    <a href="#" className="flex items-center gap-2 text-lg font-medium">
+                    {/* <a href="#" className="flex items-center gap-2 text-lg font-medium">
                         <Image src="/icons/phone.png" alt="Laza Logo" width={20} height={20} />
                         +1 (347) 560-6080
-                    </a>
+                    </a> */}
                     {/* <Link href="/checkout" className="flex items-center gap-2 text-lg font-medium">
                         <ShoppingCart className={`${scrolled || pathname === "/menu" || pathname === "/about" || pathname == '/checkout' || pathname == '/join-us' ? "text-[#2C4B7E]" : "text-white"} w-6 h-6`} />
                         {items.length > 0 && <span className={` rounded-full w-4 h-4 flex items-center justify-center text-sm ${scrolled || pathname === "/menu" || pathname === "/about" || pathname == '/checkout' ? "bg-[#2C4B7E] text-white" : "bg-white text-[#2C4B7E]"}`}>{(items.map(item => item.quantity).reduce((acc, curr) => acc + curr, 0))}</span>}
@@ -115,15 +115,15 @@ export default function Navbar() {
                                 ))}
                             </nav>
                             <div className="flex flex-col gap-4 mt-8">
-                                <a href="#" className="flex items-center gap-3 text-lg font-medium">
+                                {/* <a href="#" className="flex items-center gap-3 text-lg font-medium">
                                     <Image src="/icons/phone.png" alt="Laza Logo" width={22} height={22} />
                                     +1 (347) 560-6080
-                                </a>
-                                <Link href="/checkout" onClick={() => setSidebarOpen(false)} className="flex items-center gap-3 text-lg font-medium">
+                                </a> */}
+                                {/* <Link href="/checkout" onClick={() => setSidebarOpen(false)} className="flex items-center gap-3 text-lg font-medium">
                                     <ShoppingCart className="text-[#2C4B7E] w-6 h-6" />
                                     {items.length > 0 && <span className="rounded-full w-5 h-5 flex items-center justify-center text-xs bg-[#2C4B7E] text-white">{(items.map(item => item.quantity).reduce((acc, curr) => acc + curr, 0))}</span>}
                                     Checkout
-                                </Link>
+                                </Link> */}
                             </div>
                         </aside>
                     </>

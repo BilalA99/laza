@@ -43,33 +43,22 @@ function StarRow({ count = 5 }) {
 function TestimonialCard({ testimonial, index }: { testimonial: GoogleReview; index: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: -20, scale: 0.95 }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
       transition={{
-        duration: 0.6,
-        ease: "easeOut",
-        delay: index * 0.1 // Stagger the animations
+        duration: 0.3,
+        ease: "easeOut"
       }}
-      className="rounded-xl shadow p-6 xl:w-90 xl:h-70 w-80 h-70 flex flex-col border border-gray-200 transition-all duration-300"
+      className="rounded-xl shadow p-6 xl:w-90 xl:h-70 w-80 h-70 flex flex-col border border-gray-200"
       style={{
         background: 'rgba(241, 241, 241, 0.10)',
         boxShadow: ' 0px -2px 6px 0px rgba(0, 0, 0, 0.25) inset',
       }}
-
     >
-      <motion.div
-        className="flex items-center gap-3 mb-2"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-      >
+      <div className="flex items-center gap-3 mb-2">
         {testimonial.authorAttribution.photoUri ? (
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-          >
+          <div>
             <Image
               src={testimonial.authorAttribution.photoUri}
               alt={testimonial.name}
@@ -77,51 +66,33 @@ function TestimonialCard({ testimonial, index }: { testimonial: GoogleReview; in
               width={40}
               height={40}
             />
-          </motion.div>
+          </div>
         ) : (
-          <motion.div
-            className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-lg font-bold text-[#2C4B7E] border border-gray-300"
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-          >
+          <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-lg font-bold text-[#2C4B7E] border border-gray-300">
             {testimonial.authorAttribution.displayName.charAt(0)}
-          </motion.div>
+          </div>
         )}
         <div className="flex flex-col">
           <div className="flex items-center gap-2">
             <span className="font-bold text-[#2C4B7E]">{testimonial.authorAttribution.displayName}</span>
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
-            >
+            <div>
               <Google />
-            </motion.div>
+            </div>
           </div>
           <span className="text-xs text-gray-500">{testimonial.relativePublishTimeDescription}</span>
         </div>
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-      >
+      <div>
         <StarRow count={testimonial.rating} />
-      </motion.div>
+      </div>
 
-      <motion.p
-        className="text-black text-sm leading-relaxed mt-1 overflow-y-auto flex-1"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-      >
+      <p className="text-black text-sm leading-relaxed mt-1 overflow-y-auto flex-1">
         {testimonial.text.text.length > 200
-          ? `${testimonial.text.text.substring(0, 250)}...`
+          ? `${testimonial.text.text.substring(0, 200)}...`
           : testimonial.text.text
         }
-      </motion.p>
+      </p>
     </motion.div>
   );
 }
@@ -142,6 +113,8 @@ export default function TestimonialsCarousel({ reviews }: { reviews: GoogleRevie
     function handleResize() {
       if (window.innerWidth >= 1280) {
         setVisible(3);
+      } else if (window.innerWidth >= 768) {
+        setVisible(2);
       } else {
         setVisible(1);
       }

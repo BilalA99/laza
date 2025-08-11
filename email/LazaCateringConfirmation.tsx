@@ -75,25 +75,33 @@ export const LazaCateringConfirmation = ({ cateringData }: { cateringData: Cater
                     <Section style={inquirySection}>
                         <Heading style={inquiryTitle}>📋 Inquiry Details</Heading>
                         <Row style={detailRow}>
+                            {/* <Column style={detailColumn}>
+                                <Section style={detailItemBox}>
+                                    <Text style={detailLabel}>Inquiry Number:</Text>
+                                    <Text style={detailValue}>{cateringData.phone}</Text>
+                                </Section>
+                            </Column> */}
                             <Column style={detailColumn}>
-                                <Text style={detailLabel}>Inquiry Number:</Text>
-                                <Text style={detailValue}>{cateringData.phone}</Text>
-                            </Column>
-                            <Column style={detailColumn}>
-                                <Text style={detailLabel}>Inquiry Date:</Text>
-                                <Text style={detailValue}>{cateringData.eventDate}</Text>
+                                <Section style={detailItemBox}>
+                                    <Text style={detailLabel}>Inquiry Date:</Text>
+                                    <Text style={detailValue}>{new Date().toLocaleDateString()}</Text>
+                                </Section>
                             </Column>
                         </Row>
 
                         {cateringData.eventDate && (
                             <Row style={detailRow}>
                                 <Column style={detailColumn}>
-                                    <Text style={detailLabel}>Event Date:</Text>
-                                    <Text style={detailValue}>{cateringData.eventDate}</Text>
+                                    <Section style={detailItemBox}>
+                                        <Text style={detailLabel}>Event Date:</Text>
+                                        <Text style={detailValue}>{cateringData.eventDate}</Text>
+                                    </Section>
                                 </Column>
                                 <Column style={detailColumn}>
-                                    <Text style={detailLabel}>Event Type:</Text>
-                                    <Text style={detailValue}>{cateringData.eventType || 'Not specified'}</Text>
+                                    <Section style={detailItemBox}>
+                                        <Text style={detailLabel}>Event Type:</Text>
+                                        <Text style={detailValue}>{cateringData.eventType || 'Not specified'}</Text>
+                                    </Section>
                                 </Column>
                             </Row>
                         )}
@@ -101,8 +109,10 @@ export const LazaCateringConfirmation = ({ cateringData }: { cateringData: Cater
                         {cateringData.guestCount && (
                             <Row style={detailRow}>
                                 <Column style={detailColumn}>
-                                    <Text style={detailLabel}>Expected Guests:</Text>
-                                    <Text style={detailValue}>{cateringData.guestCount} people</Text>
+                                    <Section style={detailItemBox}>
+                                        <Text style={detailLabel}>Expected Guests:</Text>
+                                        <Text style={detailValue}>{cateringData.guestCount} people</Text>
+                                    </Section>
                                 </Column>
                             </Row>
                         )}
@@ -197,30 +207,32 @@ export const LazaCateringConfirmation = ({ cateringData }: { cateringData: Cater
                     </Section>
 
                     {/* Catering Highlights */}
-                    <Section style={highlightsSection}>
+                    {/* <Section style={highlightsSection}>
                         <Heading style={sectionTitle}>Why Choose Laza Catering?</Heading>
                         <Row style={highlightRow}>
                             <Column style={highlightColumn}>
                                 <Section style={highlightBox}>
                                     <Img
                                         src={`${url}/desserts/kunafa.jpg`}
-                                        width="60"
-                                        height="60"
+                                        width="80"
+                                        height="80"
                                         alt="Fresh Made"
                                         style={highlightImage}
+                                        className='object-cover'
                                     />
                                     <Heading style={highlightTitle}>Fresh Made Daily</Heading>
                                     <Text style={highlightDescription}>All desserts made fresh</Text>
                                 </Section>
                             </Column>
                             <Column style={highlightColumn}>
-                                <Section style={highlightBox}>
+                                <Section style={highlightBox} className=' w-full'>
                                     <Img
                                         src={`${url}/desserts/crepe.jpg`}
-                                        width="60"
-                                        height="60"
+                                        width="80"
+                                        height="80"
                                         alt="Customizable"
                                         style={highlightImage}
+                                        className='object-cover'
                                     />
                                     <Heading style={highlightTitle}>Customizable Menus</Heading>
                                     <Text style={highlightDescription}>Tailored to your event</Text>
@@ -230,17 +242,18 @@ export const LazaCateringConfirmation = ({ cateringData }: { cateringData: Cater
                                 <Section style={highlightBox}>
                                     <Img
                                         src={`${url}/drinks/ferroshake.jpg`}
-                                        width="60"
-                                        height="60"
+                                        width="80"
+                                        height="80"
                                         alt="Professional"
                                         style={highlightImage}
+                                        className='object-cover'
                                     />
                                     <Heading style={highlightTitle}>Professional Service</Heading>
                                     <Text style={highlightDescription}>From setup to cleanup</Text>
                                 </Section>
                             </Column>
                         </Row>
-                    </Section>
+                    </Section> */}
 
                     {/* Contact Information */}
                     <Section style={contactInfoSection}>
@@ -249,7 +262,7 @@ export const LazaCateringConfirmation = ({ cateringData }: { cateringData: Cater
                             If you have any urgent questions, feel free to contact us directly:
                         </Text>
                         <Text style={contactInfoDetails}>
-                            📧 catering@lazadessert.cafe | 📱 (555) 123-4567
+                            📧 support@lazadessert.cafe | 📱 (347) 560-6080
                         </Text>
                     </Section>
 
@@ -281,6 +294,32 @@ export const LazaCateringConfirmation = ({ cateringData }: { cateringData: Cater
                                 />
                             </Link>
                         </Row>
+                        {/* <Section style={{ textAlign: 'center', marginBottom: '25px' }}>
+                            <Row style={socialRow}>
+                                <Column style={socialColumn}>
+                                    <Link href="https://instagram.com/lazacafe">
+                                        <Img
+                                            src="https://lazadessert.cafe/insta.png"
+                                            width="40"
+                                            height="40"
+                                            alt="Instagram"
+                                            style={socialIcon}
+                                        />
+                                    </Link>
+                                </Column>
+                                <Column style={socialColumn}>
+                                    <Link href="https://tiktok.com/@lazacafe">
+                                        <Img
+                                            src="https://lazadessert.cafe/tiktok.png"
+                                            width="40"
+                                            height="40"
+                                            alt="TikTok"
+                                            style={socialIcon}
+                                        />
+                                    </Link>
+                                </Column>
+                            </Row>
+                        </Section> */}
                         <Text style={footerSignature}>
                             Laza Dessert Cafe - Making every event sweeter! 🌟
                         </Text>
@@ -295,70 +334,91 @@ export const LazaCateringConfirmation = ({ cateringData }: { cateringData: Cater
 
 // Styles
 const main = {
-    backgroundColor: '#f8f9fa',
-    fontFamily: 'Arial, sans-serif',
-
+    backgroundColor: '#f5f7fa',
+    fontFamily: '"Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif',
+    margin: '0 auto',
+    padding: '20px',
+    width: '100%',
+    maxWidth: '680px',
+    lineHeight: '1.6',
 };
 
 const container = {
     margin: '0 auto',
     padding: '20px',
     width: '100%',
+    maxWidth: '680px',
 };
 
 const headerSection = {
     background: 'linear-gradient(135deg, #1B3A6B 0%, #2C4B7E 100%)',
-    borderRadius: '20px 20px 0 0',
-    padding: '40px 30px',
+    borderRadius: '24px 24px 0 0',
+    padding: '50px 30px',
     textAlign: 'center' as const,
-    display: 'flex',
-    flexDirection: 'column' as const,
-    alignItems: 'center' as const,
-    justifyContent: 'center' as const,
+    boxShadow: '0 8px 32px rgba(44, 75, 126, 0.3)',
 };
 
 const logo = {
-    marginBottom: '20px',
+    margin: '0 auto 25px',
+    display: 'block',
+    borderRadius: '50%',
+    border: '3px solid rgba(255, 255, 255, 0.3)',
+    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2)',
 };
 
 const headerTitle = {
-    color: 'white',
-    fontSize: '30px',
-    fontWeight: 'bold',
-    margin: '0',
-    textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+    color: '#ffffff',
+    fontSize: '34px',
+    fontWeight: '700',
+    margin: '0 0 15px',
+    textAlign: 'center' as const,
+    letterSpacing: '-0.8px',
+    textShadow: '0 2px 8px rgba(0,0,0,0.4)',
 };
 
 const headerSubtitle = {
     color: 'rgba(255,255,255,0.95)',
     fontSize: '18px',
-    margin: '15px 0 0 0',
+    margin: '0',
+    textAlign: 'center' as const,
+    fontWeight: '400',
+    letterSpacing: '0.2px',
 };
 
 const contentSection = {
-    backgroundColor: 'white',
-    padding: '40px 30px',
-    borderRadius: '0 0 20px 20px',
-    boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+    backgroundColor: '#ffffff',
+    padding: '45px 35px',
+    borderRadius: '0 0 24px 24px',
+    boxShadow: '0 8px 32px rgba(44, 75, 126, 0.15)',
 };
 
 const thankYouSection = {
-    textAlign: 'center' as const,
+    backgroundColor: '#f8fafe',
+    padding: '35px 30px',
+    borderRadius: '16px',
     marginBottom: '40px',
+    textAlign: 'center' as const,
+    border: '1px solid rgba(44, 75, 126, 0.1)',
 };
 
 const sectionTitle = {
     color: '#1B3A6B',
-    fontSize: '24px',
-    fontWeight: 'bold',
-    margin: '0 0 20px 0',
+    fontSize: '26px',
+    fontWeight: '700',
+    margin: '0 0 25px 0',
+    textAlign: 'center' as const,
+    letterSpacing: '-0.5px',
 };
 
 const bodyText = {
-    color: '#2C4B7E',
+    color: '#444444',
     fontSize: '16px',
-    lineHeight: '1.6',
-    margin: '0 0 15px 0',
+    lineHeight: '1.7',
+    margin: '0 0 18px 0',
+    textAlign: 'center' as const,
+    maxWidth: '500px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
 };
 
 const inquirySection = {
@@ -371,10 +431,11 @@ const inquirySection = {
 
 const inquiryTitle = {
     color: '#1B3A6B',
-    fontSize: '20px',
-    textAlign: 'start' as const,
+    fontSize: '22px',
+    textAlign: 'center' as const,
     fontWeight: 'bold',
-    margin: '0 0 20px 0',
+    margin: '0 0 25px 0',
+    letterSpacing: '-0.3px',
 };
 
 const detailRow = {
@@ -383,20 +444,35 @@ const detailRow = {
 
 const detailColumn = {
     padding: '0 10px',
+    textAlign: 'center' as const,
+};
+
+const detailItemBox = {
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    padding: '20px',
+    borderRadius: '12px',
+    border: '1px solid rgba(44, 75, 126, 0.15)',
+    textAlign: 'center' as const,
+    margin: '0 auto',
+    boxShadow: '0 2px 8px rgba(44, 75, 126, 0.1)',
 };
 
 const detailLabel = {
-    color: '#1B3A6B',
-    fontWeight: 'bold',
-    fontSize: '14px',
-    margin: '0',
+    color: '#666666',
+    fontWeight: '600',
+    fontSize: '12px',
+    margin: '0 0 8px 0',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '0.8px',
+    textAlign: 'center' as const,
 };
 
 const detailValue = {
     color: '#2C4B7E',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    margin: '5px 0 0 0',
+    fontSize: '18px',
+    fontWeight: '700',
+    margin: '0',
+    textAlign: 'center' as const,
 };
 
 const contactSection = {
@@ -409,27 +485,35 @@ const contactRow = {
 
 const contactColumn = {
     padding: '0 10px',
+    textAlign: 'center' as const,
 };
 
 const fieldLabel = {
-    color: '#1B3A6B',
-    fontWeight: 'bold',
-    fontSize: '14px',
-    margin: '0 0 5px 0',
+    color: '#666666',
+    fontWeight: '600',
+    fontSize: '12px',
+    margin: '0 0 10px 0',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '0.8px',
+    textAlign: 'center' as const,
 };
 
 const fieldBox = {
-    padding: '12px',
-    backgroundColor: 'rgba(255, 255, 255, 0.20)',
-    borderRadius: '10px',
-    border: '1px solid rgba(44, 75, 126, 0.2)',
-    boxShadow: '0px 2px 4px 2px rgba(0, 0, 0, 0.10) inset',
+    padding: '16px',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    borderRadius: '12px',
+    border: '2px solid rgba(44, 75, 126, 0.15)',
+    boxShadow: '0 2px 8px rgba(44, 75, 126, 0.1)',
+    textAlign: 'center' as const,
+    margin: '0 auto',
 };
 
 const fieldValue = {
     color: '#2C4B7E',
     fontSize: '16px',
+    fontWeight: '600',
     margin: '0',
+    textAlign: 'center' as const,
 };
 
 const nextSection = {
@@ -442,6 +526,18 @@ const stepRow = {
 
 const stepColumn = {
     padding: '0 10px',
+};
+
+const stepNumberBox = {
+    width: '60px',
+    height: '60px',
+    backgroundColor: '#2C4B7E',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
+    textAlign: 'center' as const,
+    margin: '0 auto 20px auto',
 };
 
 const stepBox = {
@@ -457,17 +553,12 @@ const stepBox = {
 };
 
 const stepNumber = {
-    width: '50px',
-    height: '50px',
-    backgroundColor: '#2C4B7E',
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center' as const,
-    justifyContent: 'center' as const,
-    margin: '0 auto 15px auto',
-    color: 'white',
-    fontSize: '20px',
-    fontWeight: 'bold',
+    width: '100%',
+    height: '100%',
+    textAlign: 'center' as const,
+    color: '#2C4B7E',
+    fontSize: '24px',
+    fontWeight: '700',
 };
 
 const stepTitle = {
@@ -505,6 +596,7 @@ const highlightBox = {
     border: '1px solid rgba(44, 75, 126, 0.1)',
     display: 'flex',
     flexDirection: 'column' as const,
+    width: '100%',
     alignItems: 'center' as const,
     justifyContent: 'center' as const,
 };
@@ -579,25 +671,37 @@ const footerText = {
 };
 
 const socialRow = {
-    marginBottom: '20px',
+    marginBottom: '25px',
     display: 'flex',
     justifyContent: 'center' as const,
     alignItems: 'center' as const,
-    gap: '20px',
+    textAlign: 'center' as const,
+    width: '100%',
 };
 
 const socialColumn = {
-    padding: '0 5px',
+    textAlign: 'center' as const,
+    display: 'flex',
+    justifyContent: 'center' as const,
+    alignItems: 'center' as const,
+    padding: '0 20px',
 };
 
 const socialIcon = {
-    cursor: 'pointer',
+    borderRadius: '12px',
+    border: '2px solid rgba(44, 75, 126, 0.2)',
+    transition: 'transform 0.3s ease',
+    boxShadow: '0 2px 8px rgba(44, 75, 126, 0.15)',
+    display: 'block',
+    margin: '0 auto',
 };
 
 const footerSignature = {
-    color: '#666',
-    fontSize: '12px',
+    color: '#888888',
+    fontSize: '14px',
     margin: '0',
+    fontStyle: 'italic' as const,
+    textAlign: 'center' as const,
 };
 
 export default LazaCateringConfirmation; 

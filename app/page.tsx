@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import TestimonialsCarousel from "@/components/Testimonials";
 import FeatureTabs from "@/components/FeaturesTab";
-import crepesMenu from "@/components/data/crepesMenu";
+import { getRandomMenuItems } from "@/components/data/mixedMenu";
 import SwiperComponent from "@/components/Swiper/Swiper";
 import CategoryScroller from "@/components/CategoryScroller";
 import Carousel from "@/components/ChatCarousel";
@@ -92,7 +92,6 @@ const featureItem = [
 
 export default async function Home() {
   const reviews = await getPlaceReviews()
-  console.log(reviews?.length)
   return (
     <>
       <script
@@ -531,59 +530,63 @@ export default async function Home() {
       <h1 className="sr-only">Laza Dessert Cafe - Premium Desserts, Crepes, Waffles, and Kunafa</h1>
       
       {/* Hero Section */}
-      <section className="relative aspect-video h-full w-full lg:h-auto min-h-100 ">
+      <section className="relative aspect-video  w-full lg:h-auto sm:min-h-100 h-[85vh]">
         {/* Background Video */}
-        <div className="absolute inset-0 w-full h-full">
+        <div className="absolute inset-0 w-full sm:h-full h-[85vh]">
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="w-full sm:h-full h-100 object-cover sm:object-center object-left"
+            className="w-full sm:h-full h-[85vh] object-cover sm:object-center object-left"
           >
             <source src="/herovideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="absolute inset-0 bg-black/40 sm:h-auto h-100"></div>{" "}
+          <div className="absolute inset-0 bg-black/40 sm:h-auto h-[85vh]"></div>{" "}
           {/* Slight overlay for contrast */}
         </div>
 
-        <div className="relative z-10 flex flex-col sm:items-start items-center lg:px-20 px-4 space-y-8 sm:justify-center justify-end sm:h-full h-100 py-4 ">
-          <FadeIn className="sm:w-fit sm:h-fit w-40"><Image src="/lazacafehero.png" alt="Laza Desserts" width={400} height={400} /></FadeIn>
-          <FadeIn className="sm:w-fit w-full h-fit sm:text-start text-center">
+        <div className="relative z-10 flex flex-col sm:items-start items-center lg:px-20 px-4 sm:space-y-8 space-y-4 sm:pb-0  sm:justify-center justify-center sm:h-full h-[85vh] py-4 ">
+          <FadeIn className="sm:w-fit sm:h-fit w-80"><Image src="/lazacafehero.png" alt="Laza Desserts" width={400} height={400} /></FadeIn>
+          <FadeIn className="sm:w-fit w-full h-fit sm:text-start text-center ">
             <p className="text-white ml-3 sm:text-3xl text-2xl">
               WE ARE OPEN FROM <br />
-              <span className="font-bold">Sunday - Saturday</span>: 2:00pm - 2:00am
+              <span className="font-bold">Sunday - Saturday</span>:<br className="sm:hidden block" /> 2:00pm - 2:00am
             </p>
           </FadeIn>
-          <FadeIn className="w-fit h-fit"><div className="ml-4"><OrderNowButton /></div></FadeIn>
+          <FadeIn className="w-fit h-fit"><div className="ml-4 mt-4"><OrderNowButton /></div></FadeIn>
         </div>
       </section>
 
       {/* Most Wanted Section */}
-      <section className="relative aspect-video h-full w-full items-center justify-center overflow-hidden min-h-220" >
+      <section className="relative aspect-video h-full w-full items-center justify-start overflow-hidden sm:min-h-220 min-h-180" >
         {/* Gradient + Image background */}
-        <FadeIn className="relative ">
-          <div className="absolute top-0 md:w-225 w-70 md:h-200 h-70 -z-20 md:right-20 right-0 "
+        <FadeIn className="relative -z-10">
+          <div className="absolute sm:-top-40 -top-14 md:w-225 w-70 md:h-180 h-60 -z-20 md:right-0 -right-10 "
           >
-            <Image src="/lazablack1.png" alt="Laza Desserts" fill className="w-full h-full object-cover" />
+            <Image src="/bluelazaheader.png" alt="Laza Desserts" fill className="w-full h-full object-contain" />
           </div>
         </FadeIn>
 
-        <div className="flex flex-col items-center justify-start w-full h-fit space-y-10 md:px-20 px-4 sm:pt-40 pt-20 z-10">
-          <p className="font-[--font-playfair] text-black md:text-7xl text-4xl text-center">Most Wanted of the Week</p>
-          <p className=" text-black text-xl sm:w-[50%] text-center ">Handcrafted indulgences that captured the spotlight, each bite<br />
+        <div className="flex flex-col  items-center justify-start w-full h-fit space-y-4 sm:space-y-10 md:px-20 px-4 sm:pt-40 pt-20 z-10">
+          <p className="text-[#2C4B7E] md:text-8xl text-shadow-2xs font-bold text-5xl text-center leading-tight "
+            style={{
+              fontFamily: "var(--font-ebgaramond)",
+            }}
+          >Most Popular of the Week</p>
+          <p className="text-black sm:text-xl text-base sm:w-[50%] text-center">Handcrafted indulgences in the spotlight.<br />
             a testament to dessert artistry at <span className="text-[#2C4B7E] font-[--font-playfair]">Laza.</span>
           </p>
         </div>
 
         <div className="h-full max-w-8xl w-full mx-auto">
           {/* <SwiperComponent /> */}
-          {/* <Carousel items={crepesMenu} /> */}
-          {/* <GeminiCarousel products={crepesMenu} /> */}
-          {/* <GeminiCarouselSlide products={crepesMenu} /> */}
-          {/* <GeminiCenterCarousel products={crepesMenu} /> */}
-          <GeminiCenter2Carousel products={crepesMenu} />
+          {/* <Carousel items={getRandomMenuItems(7)} /> */}
+          {/* <GeminiCarousel products={getRandomMenuItems(7)} /> */}
+          {/* <GeminiCarouselSlide products={getRandomMenuItems(7)} /> */}
+          {/* <GeminiCenterCarousel products={getRandomMenuItems(7)} /> */}
+          <GeminiCenter2Carousel products={getRandomMenuItems(7)} />
         </div>
       </section>
 
@@ -825,7 +828,7 @@ export default async function Home() {
             </div>
 
             <div className="flex flex-col  items-start relative justify-center w-full h-full mt-14 sm:mt-0 lg:space-y-20 space-y-10">
-              <p  className="text-black sm:text-7xl text-3xl  mb-6 leading-tight"
+              <p className="text-black sm:text-7xl text-3xl  mb-6 leading-tight"
                 style={{
                   fontFamily: "var(--font-playfair)",
                 }}
@@ -881,7 +884,7 @@ export default async function Home() {
         <h2 className="sm:text-6xl text-3xl font-[--font-playfair] mb-16 z-10 xl:mt-20 mt-0">Testimonials</h2>
         <div className="z-10 sm:mt-10 "><TestimonialsCarousel reviews={reviews || []} /></div>
         {/* Waffle image on the right */}
-        <div className="absolute md:-bottom-20 right-0 sm:w-100 w-60 h-60 sm:h-100  pointer-events-none select-none ">
+        <div className="absolute lg:-bottom-20 md:-bottom-40 -bottom-5 right-0 sm:w-100 w-60 h-60 sm:h-100  pointer-events-none select-none ">
           <Image src="/waffle1.png" alt="Waffle" fill className="object-contain object-bottom" />
         </div>
       </section>
