@@ -197,6 +197,119 @@ export default function JoinUsPage() {
 
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                                                              "@type": "Restaurant",
+                                      "name": "Laza Dessert Cafe",
+                                      "alternateName": ["Chocolate Factory", "The Chocolate Factory", "Laza by Chocolate Factory"],
+                                      "description": "Join the Laza Dessert Cafe family. Franchise opportunities available for passionate entrepreneurs. Build your own dessert empire with our proven concept.",
+                        "url": "https://lazadessert.cafe/join-us",
+                        "logo": "https://lazadessert.cafe/lazabluelogo.png",
+                        "image": "https://lazadessert.cafe/default_og.png",
+                        "telephone": ["+1 347 560 6080", "+1 347 507 1087"],
+                        "address": [
+                            {
+                                "@type": "PostalAddress",
+                                "streetAddress": "6740 5th Ave",
+                                "addressLocality": "Brooklyn",
+                                "addressRegion": "NY",
+                                "postalCode": "11220",
+                                "addressCountry": "US"
+                            },
+                            {
+                                "@type": "PostalAddress",
+                                "streetAddress": "25-33 Steinway St",
+                                "addressLocality": "Queens",
+                                "addressRegion": "NY",
+                                "postalCode": "11103",
+                                "addressCountry": "US"
+                            }
+                        ],
+                        "openingHoursSpecification": [
+                            {
+                                "@type": "OpeningHoursSpecification",
+                                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                                "opens": "14:00",
+                                "closes": "02:00"
+                            }
+                        ],
+                        "priceRange": "$$",
+                        "servesCuisine": ["Middle Eastern", "Desserts", "Coffee", "Shakes", "Beverages"],
+                        "hasMenu": "https://lazadessert.cafe/menu",
+                        "menu": "https://lazadessert.cafe/menu",
+                        "acceptsReservations": false,
+                        "deliveryAvailable": true,
+                        "takeoutAvailable": true,
+                        "dineInAvailable": true,
+                        "wheelchairAccessible": true,
+                        "parkingAvailable": true,
+                        "parkingType": "Street Parking",
+                        "amenityFeature": [
+                            {
+                                "@type": "LocationFeatureSpecification",
+                                "name": "Free WiFi",
+                                "value": true
+                            },
+                            {
+                                "@type": "LocationFeatureSpecification",
+                                "name": "Street Parking",
+                                "value": true
+                            },
+                            {
+                                "@type": "LocationFeatureSpecification",
+                                "name": "Late Night Hours",
+                                "value": true
+                            }
+                        ],
+                        "areaServed": [
+                            {
+                                "@type": "City",
+                                "name": "Brooklyn",
+                                "sameAs": "https://en.wikipedia.org/wiki/Brooklyn"
+                            },
+                            {
+                                "@type": "City",
+                                "name": "Queens",
+                                "sameAs": "https://en.wikipedia.org/wiki/Queens"
+                            },
+                            {
+                                "@type": "City",
+                                "name": "New York City",
+                                "sameAs": "https://en.wikipedia.org/wiki/New_York_City"
+                            }
+                        ],
+                        "sameAs": [
+                            "https://www.instagram.com/laza.cafe",
+                            "https://www.tiktok.com/@lazacafe"
+                        ],
+                        "hasOfferCatalog": {
+                            "@type": "OfferCatalog",
+                            "name": "Franchise Opportunities",
+                            "itemListElement": [
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "Franchise Development",
+                                        "description": "Franchise opportunities for passionate entrepreneurs"
+                                    }
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "Business Support",
+                                        "description": "Comprehensive support for franchise owners"
+                                    }
+                                }
+                            ]
+                        }
+                    })
+                }}
+            />
             <main className="flex flex-col items-center justify-center relative min-h-screen w-full bg-white py-16 px-2 mt-20">
 
                 <div className=" absolute top-1/2 inset-0 w-full h-100 [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem),linear-gradient(to_top,transparent,black_6rem)]  "

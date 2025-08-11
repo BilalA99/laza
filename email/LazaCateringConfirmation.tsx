@@ -274,6 +274,26 @@ export const LazaCateringConfirmation = ({ cateringData }: { cateringData: Cater
                         <Text style={footerText}>
                             We look forward to making your event truly memorable with our delicious desserts.
                         </Text>
+                        <Row style={socialRow} className='grid grid-cols-2 gap-4'>
+                            <Link href="https://www.instagram.com/laza.cafe">
+                                <Img
+                                    src={`${url}/insta.png`}
+                                    width="40"
+                                    height="40"
+                                    alt="Instagram"
+                                    style={socialIcon}
+                                />
+                            </Link>
+                            <Link href="https://www.tiktok.com/@lazacafe">
+                                <Img
+                                    src={`${url}/tiktok.png`}
+                                    width="40"
+                                    height="40"
+                                    alt="TikTok"
+                                    style={socialIcon}
+                                />
+                            </Link>
+                        </Row>
                         {/* <Section style={{ textAlign: 'center', marginBottom: '25px' }}>
                             <Row style={socialRow}>
                                 <Column style={socialColumn}>
