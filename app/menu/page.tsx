@@ -147,7 +147,7 @@ export default function Menu() {
           })
         }}
       />
-      <main className="min-h-screen w-full">
+      <main className="min-h-screen w-full pb-28 sm:pb-24 md:pb-20">
         {/* <section className='flex flex-col relative items-center justify-center w-full h-full'>
             <div className='flex items-end w-full h-full'>
                 <Image src='/lazablack.jpg' alt='bg wave' fill className='object-cover' />
