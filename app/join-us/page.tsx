@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import Image from "next/image";
 import { SendFranchiseInquiryEmail } from "@/email";
+import React from "react";
 
 const joinUsSchema = z.object({
     // 1. Contact & Basics
@@ -171,6 +172,18 @@ export default function JoinUsPage() {
     } = useForm<JoinUsForm>({
         resolver: zodResolver(joinUsSchema),
     });
+
+    // Set canonical URL for SEO
+    React.useEffect(() => {
+        const link = document.createElement('link');
+        link.rel = 'canonical';
+        link.href = 'https://lazadessert.cafe/join-us';
+        document.head.appendChild(link);
+        
+        return () => {
+            document.head.removeChild(link);
+        };
+    }, []);
 
     const onSubmit = async (data: JoinUsForm) => {
         setIsSubmitting(true);
