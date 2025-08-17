@@ -15,7 +15,7 @@ const MenuCard: React.FC<MenuCardProps> = ({ product }) => {
     return (
         <FadeIn className="w-full h-full">
             <div
-                className="bg-white rounded-[48px] shadow-md overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer w-[350px] h-[450px]"
+                className="bg-white rounded-[48px] overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-2 cursor-pointer w-[350px] h-[450px] shadow-none drop-shadow-sm hover:drop-shadow-xl will-change-transform isolate"
                 style={{ minWidth: 320, minHeight: 420 }}
             >
                 <div className="relative w-full h-[55%]">

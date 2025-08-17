@@ -20,7 +20,8 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ imageSrc, title, descriptio
     
     return (
        <Link href={link} className="w-full flex items-center justify-center">
-                <div className="w-full max-w-xs h-110 self-center bg-transparent rounded-[40px] overflow-hidden hover:cursor-pointer shadow-none flex flex-col transition-all duration-200 hover:scale-105 hover:shadow-lg">
+           <MenuItemDialog imageSrc={imageSrc} title={title} description={description} price={price} modifiers={modifiers}>
+                <div className="w-full max-w-xs h-110 self-center bg-transparent rounded-[40px] overflow-hidden hover:cursor-pointer shadow-none drop-shadow-sm hover:drop-shadow-lg flex flex-col transition-all duration-200 hover:scale-105 will-change-transform isolate">
                     {/* Image */}
                     <div className="relative w-full sm:h-56 h-90 bg-[#1B3A6B]" style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}>
                         <Image
@@ -52,6 +53,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ imageSrc, title, descriptio
                         </div>
                     </div>
                 </div>
+            </MenuItemDialog>
        </Link>
     );
 };

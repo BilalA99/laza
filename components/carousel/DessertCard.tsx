@@ -14,7 +14,7 @@ interface DessertCardProps extends Dessert {
 const DessertCard: React.FC<DessertCardProps> = ({ image, title, description, active }) => {
     return (
         <div
-            className={`relative flex flex-row items-center justify-center bg-white rounded-3xl transition-all duration-300 shadow-lg ${active ? "w-[50rem] h-[25rem] px-8 py-8" : "w-[22rem] h-[22rem]"}
+            className={`relative flex flex-row items-center justify-center bg-white rounded-3xl transition-all duration-300 shadow-none drop-shadow-md overflow-hidden ${active ? "w-[50rem] h-[25rem] px-8 py-8" : "w-[22rem] h-[22rem]"}
       `}
         >
             <Image
@@ -26,7 +26,7 @@ const DessertCard: React.FC<DessertCardProps> = ({ image, title, description, ac
             />
 
             {active && (
-                <div className="h-full w-[260px] bg-white rounded-3xl flex flex-col justify-center px-6 py-8 shadow-xl " style={{ left: "60%" }}>
+                <div className="h-full w-[260px] bg-white rounded-3xl flex flex-col justify-center px-6 py-8 shadow-none drop-shadow-md overflow-hidden" style={{ left: "60%" }}>
                     <h2 className="text-2xl font-bold mb-2 text-black">{title}</h2>
                     <p className="text-base text-black mb-4">{description}</p>
                     <button className="text-[#2C4B7E] font-semibold text-lg flex items-center gap-1 hover:underline">
