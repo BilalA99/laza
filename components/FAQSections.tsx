@@ -42,7 +42,11 @@ export default function FAQsSections() {
         <section className="flex flex-col md:flex-row w-full items-stretch justify-center py-24 gap-8 relative z-10">
             {/* Left: Title and image */}
             <div className="flex flex-col items-start justify-center w-full md:w-[40%] relative z-10">
-                <h2 className="text-5xl md:text-7xl font-[--font-playfair] mb-12 font-500 leading-tight">Frequently<br />Asked<br />Questions</h2>
+                <h2 className="text-5xl md:text-7xl mb-12 font-500 leading-tight"
+                style={{
+                    fontFamily: "var(--font-bebas)",
+                }}
+                >Frequently<br />Asked<br />Questions</h2>
                 <div className="relative w-140 h-140 [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem),linear-gradient(to_top,transparent,black_6rem)]">
                     <Image src="/desserts/oreocrepe.png" alt="Dessert" fill className="object-cover w-full h-full " />
                     <div className="absolute -top-0 left-1/4  rounded-full overflow-hidden w-40 h-40 border-4 border-white bg-white flex items-center justify-center shadow-lg">
@@ -65,7 +69,7 @@ export default function FAQsSections() {
                                 >
                                     <span
                                         style={{
-                                            fontFamily: 'var(--font-reem-kufi)',
+                                            fontFamily: 'var(--font-raleway)',
                                             fontWeight: 500,
                                         }}
                                         className={`${openItem === index ? 'text-black' : 'text-[#5B5F67]'} text-2xl`}

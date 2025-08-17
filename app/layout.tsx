@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Roboto, Bodoni_Moda, EB_Garamond,Cardo,Yeseva_One} from "next/font/google";
+import { Inter, Playfair_Display, Roboto, Raleway, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import '@/components/embla.css'
@@ -29,36 +29,20 @@ const getBaseUrl = () => {
 };
 
 const baseUrl = getBaseUrl();
-const bodoni = Bodoni_Moda({
-  subsets: ["latin"],
-  variable: "--font-bodoni",
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
 
-});
-
-const ebgaramond = EB_Garamond({
+const raleway = Raleway({
   subsets: ["latin"],
-  variable: "--font-ebgaramond",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-raleway",
+  weight: ["500"],
   display: "swap",
 });
 
-const cardo = Cardo({
+const bebas = Bebas_Neue({
   subsets: ["latin"],
-  variable: "--font-cardo",
-  weight: ["400", "700"],
-  display: "swap",
-});
-
-const yeseva = Yeseva_One({
-  subsets: ["latin"],
-  variable: "--font-yeseva",
+  variable: "--font-bebas",
   weight: ["400"],
   display: "swap",
 });
-
-
 
 export const metadata: Metadata = {
   title: {
@@ -211,7 +195,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
-        
+
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-7S7ESYHH6J" />
         <script
@@ -225,9 +209,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google tag (gtag.js) */}
+
       </head>
       <body
-        className={`${inter.variable} ${playfair.variable} ${roboto.variable} ${bodoni.variable} ${ebgaramond.variable} ${cardo.variable} ${yeseva.variable} antialiased w-full overflow-none`}
+        className={`${inter.variable} ${playfair.variable} ${bebas.variable} ${roboto.variable} ${raleway.variable} antialiased w-full overflow-none`}
       >
         {/* Prevent external classes from being added to HTML element - runs on every page */}
         <script
@@ -352,11 +337,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
         {/* Google Tag Manager (noscript) */}
         <noscript>
-          <iframe 
+          <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-K3WGVNK8"
-            height="0" 
-            width="0" 
-            style={{display:'none',visibility:'hidden'}}
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}

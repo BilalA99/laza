@@ -10,7 +10,7 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
     const carouselRef = useRef<HTMLDivElement | null>(null); // Ref for the sliding container
     const viewportRef = useRef<HTMLDivElement | null>(null); // Ref for the visible area
     const [offset, setOffset] = useState(0); // State for the CSS transform offset
-
+    const [touchStart, setTouchStart] = useState<number | null>(null);
     const [dragStart, setDragStart] = useState<number | null>(null);
     const [isPaused, setIsPaused] = useState(false);
     const SWIPE_THRESHOLD = 50;
@@ -29,12 +29,13 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
     }, []);
 
     // Effect to calculate and set the transform offset for centering.
+    // REFINED: Effect to calculate and set the transform offset.
     useEffect(() => {
         const calculateOffset = () => {
             if (carouselRef.current && viewportRef.current) {
-                const viewport = viewportRef.current as HTMLDivElement;
-                const children = carouselRef.current.children as HTMLCollectionOf<HTMLElement>;
-                const activeItem = children[activeIndex];
+                const viewport = viewportRef.current;
+                const activeItem = carouselRef.current.children[activeIndex] as HTMLElement;
+
                 if (activeItem) {
                     const viewportCenter = viewport.offsetWidth / 2;
                     const itemCenter = activeItem.offsetLeft + activeItem.offsetWidth / 2;
@@ -43,19 +44,17 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
             }
         };
 
-        // Delay calculation to allow CSS transition on card size to complete.
-        // Reduced delay for snappier animations
-        const timer = setTimeout(calculateOffset, 200);
-
-        // Also recalculate on resize, but without a delay.
+        // This short delay allows the CSS scaling transition to begin,
+        // ensuring we calculate the offset based on the item's new, larger size.
+        // 150ms is often enough time for the render to kick in.
+        const timer = setTimeout(calculateOffset, 150);
         window.addEventListener('resize', calculateOffset);
 
-        // Cleanup function to clear the timer and remove the event listener
         return () => {
             clearTimeout(timer);
             window.removeEventListener('resize', calculateOffset);
         };
-    }, [activeIndex]);
+    }, [activeIndex, products.length]); // Added products.length as a dependency
 
     // Effect for keyboard navigation
     useEffect(() => {
@@ -115,6 +114,45 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
         setDragStart(null);
         setIsPaused(false);
     };
+    // MOBILE: Handlers for touch-based swiping
+    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+        setIsPaused(true);
+        // Get the first touch point's X coordinate
+        setTouchStart(e.touches[0].clientX);
+        setDragging(false);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+        if (touchStart !== null) {
+            if (Math.abs(e.touches[0].clientX - touchStart) > 10) {
+                setDragging(true);
+            }
+        }
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+        if (touchStart === null) return;
+
+        // Get the final touch point's X coordinate
+        const touchEnd = e.changedTouches[0].clientX;
+        const touchDistance = touchStart - touchEnd;
+
+        if (Math.abs(touchDistance) > SWIPE_THRESHOLD) {
+            if (touchDistance > 0) handleNext();
+            else handlePrev();
+        } else {
+            // Handle tap event if it wasn't a swipe
+            const tappedItem = (e.target as HTMLElement).closest('[data-index]');
+            if (tappedItem) {
+                const tappedIndex = parseInt((tappedItem as HTMLElement).dataset.index || '0', 10);
+                if (tappedIndex !== activeIndex) {
+                    setActiveIndex(tappedIndex);
+                }
+            }
+        }
+        setTouchStart(null);
+        setTimeout(() => setIsPaused(false), 2000);
+    };
 
     return (
         <div className="flex flex-col items-center justify-start overflow-hidden">
@@ -124,13 +162,16 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
                 onMouseLeave={handleMouseLeave}
             >
                 {/* Viewport container - this creates the visible window */}
-                <div ref={viewportRef} className="overflow-hidden cursor-grab select-none h-80 sm:h-96 flex items-center"
+                <div ref={viewportRef}
+                    className="overflow-hidden cursor-grab active:cursor-grabbing h-80 sm:h-96 flex items-center"
+                    style={{ touchAction: 'pan-y' }} // MOBILE: Critical for smooth swiping
+                // ... all other event handlers
                 >
                     {/* Carousel container - this is the element that moves */}
                     <div
                         ref={carouselRef}
-                        className="flex items-center justify-start space-x-8 md:space-x-12 px-4 transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] select-none"
-                        style={{ transform: `translateX(${offset}px)` }}
+                        className="flex items-center justify-start space-x-8 md:space-x-12 px-4 transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+                        style={{ transform: `translateX(${offset}px)`, willChange: 'transform' }}
                     >
                         {products.map((product, index) => {
                             const isActive = index === activeIndex;
@@ -172,7 +213,7 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
                                                 {product.title}
                                             </h3>
                                             <p className={`text-xs md:text-base mt-3 text-gray-600 overflow-hidden transition-all duration-500 flex-wrap-reverse ease-out ${isActive ? 'opacity-100 translate-y-0 delay-300' : 'opacity-0 translate-y-2 delay-0'}`}>
-                                                {product.description.length > 50 ? product.description.slice(0, 50) + '...' : product.description}
+                                                {product.description.length > 100 ? product.description.slice(0, 100) + '...' : product.description}
                                             </p>
                                             <div className="flex flex-col space-y-2 justify-between items-start mt-3">
                                                 <span className={`font-bold text-xs md:text-xl text-gray-800 whitespace-nowrap transition-all duration-500 ease-out ${isActive ? 'opacity-100 translate-y-0 delay-450' : 'opacity-0 translate-y-2 delay-0'}`}>

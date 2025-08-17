@@ -24,6 +24,7 @@ import GeminiCenter2Carousel from "@/components/GeminiCenter2Carousel";
 import { locations } from "@/lib/locations";
 import Link from "next/link";
 import getPlaceReviews from "./actions/get-google-reviews";
+import HeroVideo from "@/components/HeroVideo";
 
 // Get the base URL for metadata (works both locally and in production)
 const getBaseUrl = () => {
@@ -530,34 +531,7 @@ export default async function Home() {
         <h1 className="sr-only">Laza Dessert Cafe - Premium Desserts, Crepes, Waffles, and Kunafa</h1>
 
         {/* Hero Section */}
-        <section className="relative aspect-video  w-full lg:h-auto sm:min-h-100 h-[85vh]">
-          {/* Background Video */}
-          <div className="absolute inset-0 w-full sm:h-full h-[85vh]">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full sm:h-full h-[85vh] object-cover sm:object-center object-left"
-            >
-              <source src="/herovideo.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div className="absolute inset-0 bg-black/40 sm:h-auto h-[85vh]"></div>{" "}
-            {/* Slight overlay for contrast */}
-          </div>
-
-          <div className="relative z-10 flex flex-col sm:items-start items-center lg:px-20 px-4 sm:space-y-8 space-y-4 sm:pb-0  sm:justify-center justify-center sm:h-full h-[85vh] py-4 ">
-            <FadeIn className="sm:w-fit sm:h-fit w-80"><Image src="/lazacafehero.png" alt="Laza Desserts" width={400} height={400} /></FadeIn>
-            <FadeIn className="sm:w-fit w-full h-fit sm:text-start text-center ">
-              <p className="text-white ml-3 sm:text-3xl text-2xl">
-                WE ARE OPEN FROM <br />
-                <span className="font-bold">Sunday - Saturday</span>:<br className="sm:hidden block" /> 2:00pm - 2:00am
-              </p>
-            </FadeIn>
-            <FadeIn className="w-fit h-fit"><div className="ml-4 mt-4"><OrderNowButton /></div></FadeIn>
-          </div>
-        </section>
+        <HeroVideo />
 
         {/* Most Wanted Section */}
         <section className="relative aspect-video h-full w-full items-center justify-start overflow-hidden sm:min-h-220 min-h-180" >
@@ -565,29 +539,33 @@ export default async function Home() {
           <FadeIn className="relative -z-10">
             <div className="absolute sm:-top-40 -top-14 md:w-225 w-70 md:h-180 h-60 -z-20 md:right-0 -right-10 "
             >
-              <Image src="/bluelazaheader.png" alt="Laza Desserts" fill className="w-full h-full object-contain" />
+              <Image src="/bluelazaheader.png" alt="Blue Laza" fill className='object-contain object-center' />
             </div>
           </FadeIn>
 
-          <div className="flex flex-col  items-center justify-start w-full h-fit space-y-4 sm:space-y-10 md:px-20 px-4 sm:pt-40 pt-20 z-10">
+          <div className="flex flex-col  items-center justify-start w-full h-fit space-y-4 sm:space-y-2 md:px-20 px-4 sm:pt-40 pt-20 z-10">
             <p className="text-[#2C4B7E] md:text-8xl text-shadow-2xs font-bold text-5xl text-center leading-tight "
               style={{
-                fontFamily: "var(--font-ebgaramond)",
+                fontFamily: "var(--font-bebas)",
               }}
             >Most Popular of the Week</p>
-            <p className="text-black sm:text-xl text-base sm:w-[50%] text-center">Handcrafted indulgences in the spotlight.<br />
-              a testament to dessert artistry at <span className="text-[#2C4B7E] font-[--font-playfair]">Laza.</span>
+            <p className="text-black sm:text-xl text-base sm:w-[50%] text-center"
+              style={{
+                fontFamily: "var(--font-raleway)",
+              }}
+            >Handcrafted indulgences in the spotlight.<br />
+              a testament to dessert artistry at <span className="text-[#2C4B7E] font-[--font-bebas]">Laza.</span>
             </p>
           </div>
 
-          <div className="h-full max-w-8xl w-full mx-auto">
+          <section className="h-full  max-w-8xl w-full mx-auto">
             {/* <SwiperComponent /> */}
             {/* <Carousel items={getRandomMenuItems(7)} /> */}
             {/* <GeminiCarousel products={getRandomMenuItems(7)} /> */}
             {/* <GeminiCarouselSlide products={getRandomMenuItems(7)} /> */}
             {/* <GeminiCenterCarousel products={getRandomMenuItems(7)} /> */}
             <GeminiCenter2Carousel products={getRandomMenuItems(7)} />
-          </div>
+          </section>
         </section>
 
         {/* Kunafa Section */}
@@ -629,8 +607,16 @@ export default async function Home() {
             {/* Right: Text and small circles */}
             <div className="flex-1 flex flex-col justify-center items-start md:pl-16 mt-12 md:mt-0">
               <div className="w-full flex-col lg:space-y-0 space-y-10 items-start justify-center px-6">
-                <h2 className="text-4xl md:text-6xl mb-6 font-[--font-playfair] leading-tight">Our Signature<br /> Kunafa</h2>
-                <p className="text-lg md:text-xl text-black mb-10 max-w-xl leading-tight w-[80%] ">
+                <h2 className="text-4xl md:text-6xl mb-6 leading-tight"
+                  style={{
+                    fontFamily: "var(--font-bebas)",
+                  }}
+                >Our Signature<br /> Kunafa</h2>
+                <p className="text-lg md:text-xl text-black mb-10 max-w-xl leading-tight sm:w-[80%]"
+                  style={{
+                    fontFamily: "var(--font-raleway)",
+                  }}
+                >
                   Indulge in our signature Kunafa — a golden, crispy layer of shredded phyllo wrapped around a rich, creamy cheese center, delicately soaked in rose-scented syrup. Each bite offers the perfect balance of texture and sweetness, finished with a touch of crushed pistachios. Served warm, it's our most decadent dessert and a timeless Middle Eastern classic reimagined with Laza Cafe elegance.
                 </p>
               </div>
@@ -677,7 +663,11 @@ export default async function Home() {
 
           <section className=" max-w-[1440px] overflow-hidden  mx-auto flex flex-col items-center justify-center gap-x-10 border-black w-full xl:mt-40 sm:mt-20 sm:py-24 py-14 md:px-20 px-4 relative">
             <div className="flex flex-col items-center justify-center w-full h-full">
-              <p className="text-4xl md:text-7xl  mb-6 font-[--font-playfair] leading-tight">Menu</p>
+              <p className="text-4xl md:text-7xl  mb-6  leading-tight"
+                style={{
+                  fontFamily: "var(--font-bebas)",
+                }}
+              >Menu</p>
             </div>
             <CategoryScroller />
           </section>
@@ -708,7 +698,11 @@ export default async function Home() {
 
           <section className="max-w-[1440px]  mx-auto flex flex-col items-center justify-center gap-x-10 border-black w-full xl:mt-50 sm:mt-20 sm:py-24 py-14 relative">
             <div className="flex flex-col items-start w-full h-full">
-              <p className="text-4xl md:text-7xl  mb-6 font-[--font-playfair] leading-tight px-4">Our Story</p>
+              <p className="text-4xl md:text-7xl  mb-6  leading-tight px-4"
+                style={{
+                  fontFamily: "var(--font-bebas)",
+                }}
+              >Our Story</p>
             </div>
 
 
@@ -721,11 +715,11 @@ export default async function Home() {
 
                 <div className="sm:text-xl text-base mb-6 leading-tight lg:w-[25%] w-full font-[--font-roboto]  lg:order-first order-last"
                   style={{
-                    fontFamily: "var(--font-roboto)",
+                    fontFamily: "var(--font-raleway)",
                   }}
                 >
                   <div className="bg-[#234B82] w-20 h-[3px] my-4 " />
-                  <Reveal className="w-full"><p>Born in the heart of Bay Ridge, our story begins with a simple passion: transforming the world's finest cocoa into moments of pure joy. Laza is more than a dessert cafe; it's a celebration of craftsmanship, where every rich, decadent creation is handcrafted with love.</p></Reveal>
+                  <Reveal className="w-full sm:text-xl text-base"><p>Born in the heart of Bay Ridge, our story begins with a simple passion: transforming the world's finest cocoa into moments of pure joy. Laza is more than a dessert cafe; it's a celebration of craftsmanship, where every rich, decadent creation is handcrafted with love.</p></Reveal>
                 </div>
 
 
@@ -742,10 +736,8 @@ export default async function Home() {
               {/* right */}
               <div className="flex lg:flex-col flex-row items-center justify-center lg:w-[22%] lg:gap-x-0 gap-x-10 w-full h-full space-y-20 px-4 ">
 
-                <div className="flex flex-row items-center justify-center lg:w-50 w-full h-fit relative rounded-full overflow-hidden"
-                  style={{
-                    aspectRatio: '456.77/700.00',
-                  }}
+                <div className="sm:flex hidden flex-row items-center justify-center sm:aspect-[456.77/700.00] aspect-2/3 lg:w-50 w-full sm:h-fit h-60 relative rounded-full overflow-hidden"
+
                 >
                   <Image src="/drinks/matcha.jpg" alt="Matcha Latte" fill className="object-cover object-center" />
                 </div>
@@ -753,11 +745,11 @@ export default async function Home() {
 
                 <div className="sm:text-xl text-base mb-6 lg:order-last order-first  leading-tight"
                   style={{
-                    fontFamily: "var(--font-roboto)",
+                    fontFamily: "var(--font-raleway)",
                   }}
                 >
                   <div className="bg-[#234B82] w-20 h-[3px] my-4" />
-                  <Reveal className="w-full"><p>Our menu is a journey of flavor, blending timeless tradition with a vibrant New York edge. From comforting chocolate classics to inspired delights infused with rose-scented syrup and pistachios, we invite you to indulge your senses and discover a treat that feels like it was made just for you.</p></Reveal>
+                  <Reveal className="w-full sm:text-xl text-base"><p>Our menu is a journey of flavor, blending timeless tradition with a vibrant New York edge. From comforting chocolate classics to inspired delights infused with rose-scented syrup and pistachios, we invite you to indulge your senses and discover a treat that feels like it was made just for you.</p></Reveal>
                 </div>
               </div>
 
@@ -815,12 +807,12 @@ export default async function Home() {
               <div className="hidden flex-col lg:flex  items-start justify-center w-full h-full">
                 <p className="text-[#2C4B7E] text-xl font-[500]  mb-6 leading-tight"
                   style={{
-                    fontFamily: "var(--font-roboto)",
+                    fontFamily: "var(--font-raleway)",
                   }}
                 >Join the Laza Cafe Family</p>
                 <p className="text-xl mb-6  leading-tight pr-44"
                   style={{
-                    fontFamily: "var(--font-roboto)",
+                    fontFamily: "var(--font-raleway)",
                   }}
                 >
                   Be part of one of the most unique dessert experiences around. Our bold branding, delicious menu, and effortless setup make it easy to serve joy in every bite while creating a space your community will love.
@@ -830,7 +822,7 @@ export default async function Home() {
               <div className="flex flex-col  items-start relative justify-center w-full h-full mt-14 sm:mt-0 lg:space-y-20 space-y-10">
                 <p className="text-black sm:text-7xl text-3xl  mb-6 leading-tight"
                   style={{
-                    fontFamily: "var(--font-playfair)",
+                    fontFamily: "var(--font-bebas)",
                   }}
                 >Join Us</p>
                 <Link href="/join-us" className="bg-[#2C4B7E] hover:bg-[#2C4B7E] hover:scale-105 transition-all duration-300 cursor-pointer text-white text-xl rounded-full sm:block hidden px-6 py-4 w-fit h-fit"
@@ -881,7 +873,11 @@ export default async function Home() {
               >REVIEWS</p>
             </FadeIn>
           </div>
-          <h2 className="sm:text-6xl text-3xl font-[--font-playfair] mb-16 z-10 xl:mt-20 mt-0">Testimonials</h2>
+          <h2 className="sm:text-6xl text-3xl  mb-16 z-10 xl:mt-20 mt-0"
+            style={{
+              fontFamily: "var(--font-bebas)",
+            }}
+          >Testimonials</h2>
           <div className="z-10 sm:mt-10 "><TestimonialsCarousel reviews={reviews || []} /></div>
           {/* Waffle image on the right */}
           <div className="absolute lg:-bottom-20 md:-bottom-40 -bottom-5 right-0 sm:w-100 w-60 h-60 sm:h-100  pointer-events-none select-none ">
@@ -905,7 +901,11 @@ export default async function Home() {
               >VISIT</p>
             </FadeIn>
           </div>
-          <h2 className="text-5xl md:text-6xl font-[--font-playfair] mb-16 xl:mt-20 mt-0 z-10 relative">Our Locations</h2>
+          <h2 className="text-5xl md:text-6xl  mb-16 xl:mt-20 mt-0 z-10 relative"
+            style={{
+              fontFamily: "var(--font-bebas)",
+            }}
+          >Our Locations</h2>
           <div className="flex sm:flex-row flex-col sm:items-start items-center sm:justify-start justify-center w-full sm:gap-12 gap-6 z-10 relative">
             {/* Brooklyn Card */}
             <div className="bg-white rounded-xl shadow border border-gray-200 p-8 w-[340px] min-h-[220px] flex flex-col sm:mt-10">

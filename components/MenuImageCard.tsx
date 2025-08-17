@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import AutoPlayVideo from "@/components/AutoPlayVideo";
 
 interface MenuImageCardProps {
     imageSrc: string;
@@ -10,17 +11,12 @@ interface MenuImageCardProps {
 const MenuImageCard: React.FC<MenuImageCardProps> = ({ imageSrc, alt, label }) => {
     return (
         <div className="relative w-full aspect-[1/1.1] overflow-hidden shadow-lg">
-            {/* Image */}
-            <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover sm:object-center object-left"
-          >
-            <source src={imageSrc} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+            {/* Video */}
+            <AutoPlayVideo
+                src={imageSrc}
+                className="w-full h-full object-cover sm:object-center object-left"
+                showPlayButton={false}
+            />
             {/* Gradient Overlay */}
             <div
                 className="absolute inset-0"
@@ -31,7 +27,11 @@ const MenuImageCard: React.FC<MenuImageCardProps> = ({ imageSrc, alt, label }) =
             />
             {/* Text */}
             <div className="absolute left-0 bottom-0 p-6">
-                <span className="text-white text-5xl md:text-6xl font-[--font-playfair] drop-shadow-lg">
+                <span className="text-white text-5xl md:text-6xl drop-shadow-lg"
+                    style={{
+                        fontFamily: "var(--font-bebas)",
+                    }}
+                >
                     {label}
                 </span>
             </div>

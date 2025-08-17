@@ -39,13 +39,13 @@ export default function Navbar() {
     }, [sidebarOpen]);
     return (
         <nav
-            className={`fixed top-0 left-0 w-full z-50  ${scrolled || pathname === "/menu" || pathname === "/about" || pathname == '/checkout' || pathname == '/join-us' ? "bg-white shadow text-[#2C4B7E]" : "bg-transparent text-white"
+            className={`fixed top-0 left-0 w-full z-50  ${scrolled || pathname === "/menu" || pathname === "/about" || pathname == '/checkout' || pathname == '/join-us' || pathname == '/privacy-policy' || pathname == '/terms-conditions' ? "bg-white shadow text-[#2C4B7E]" : "bg-transparent text-white"
                 }`}
         >
             <div className="mx-auto flex items-center justify-between px-4 xl:px-20 py-4">
                 {/* Logo */}
                 <Link href="/" className="flex items-center rounded-full overflow-hidden relative h-16 w-16 xl:h-20 xl:w-20">
-                    <Image src={scrolled || pathname === "/menu" || pathname === "/about" || pathname == '/checkout' || pathname == '/join-us' ? "/lazabluelogo.png" : "/lazanavbarlogo.png"} alt="Laza Logo" fill className={`${scrolled || pathname === "/menu" || pathname === "/about" || pathname == '/checkout' || pathname == '/join-us' ? "object-cover" : "object-contain"} transition-all duration-300`} />
+                    <Image src={scrolled || pathname === "/menu" || pathname === "/about" || pathname == '/checkout' || pathname == '/join-us' || pathname == '/privacy-policy' || pathname == '/terms-conditions' ? "/lazabluelogo.png" : "/lazanavbarlogo.png"} alt="Laza Logo" fill className={`${scrolled || pathname === "/menu" || pathname === "/about" || pathname == '/checkout' || pathname == '/join-us' || pathname == '/privacy-policy' || pathname == '/terms-conditions' ? "object-cover" : "object-contain"} transition-all duration-300`} />
                 </Link>
                 {/* Hamburger for mobile */}
                 <button

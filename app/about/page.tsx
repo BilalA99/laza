@@ -143,11 +143,19 @@ const AboutUs = () => {
                         </div>
                         <div className='flex flex-col items-start justify-center md:w-full w-[70%] text-black space-y-4'>
                             <div className='md:block hidden'>
-                                <p className='text-lg '>WE ARE OPEN FROM<br />
+                                <p className='text-lg '
+                                style={{
+                                    fontFamily: "var(--font-raleway)",
+                                }}
+                                >WE ARE OPEN FROM<br />
                                     <span className=' text-[#2C4B7E] font-bold'> Sunday - Saturday</span>: 2:00pm - 2:00am</p>
                             </div>
                             <div className="bg-[#234B82] w-20 h-[3px] my-4" />
-                            <p className='text-lg md:w-[50%] w-[90%] z-10'>
+                            <p className='text-lg md:w-[50%] w-[90%] z-10'
+                            style={{
+                                fontFamily: "var(--font-raleway)",
+                            }}
+                            >
                                 Welcome to Laza Café, where dessert isn’t just a treat, it’s an experience.
                             </p>
 
@@ -176,9 +184,13 @@ const AboutUs = () => {
                         <Image src={'/bgwave.jpg'} alt="bg wave" fill className=" object-cover" />
                     </div>
 
-                    <h2 className="sm:text-5xl md:text-7xl text-4xl font-[--font-playfair] font-500 mb-16 xl:mt-40 md:mt-30 mt-14 z-10 relative">Why People Love Us</h2>
+                    <h2 className="sm:text-5xl md:text-7xl text-4xl font-500 mb-16 xl:mt-40 md:mt-30 mt-14 z-10 relative"
+                    style={{
+                        fontFamily: "var(--font-bebas)",
+                    }}
+                    >Why People Love Us</h2>
 
-                    <div className='flex flex-row z-10 xl:-space-x-2 lg:-space-x-6 -space-x-10  items-center justify-center w-full h-full lg:mt-30 sm:mt-20 mt-10 lg:px-0 px-6'>
+                    <div className='flex flex-row z-10 xl:-space-x-2 lg:-space-x-6 -space-x-10  items-center justify-center w-full h-full lg:mt-10 sm:mt-20 mt-10 lg:px-0 px-6'>
                         <div className='relative lg:w-80 sm:w-70 w-50 lg:h-60 h-20 sm:h-30 lg:rounded-l-[4rem] rounded-l-3xl overflow-hidden'>
                             <Image src="/ferroshake.jpg" alt="Ferro Shake" className='object-cover' fill />
                         </div>

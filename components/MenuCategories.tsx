@@ -841,7 +841,7 @@ const MenuCategories: React.FC = () => {
   const cardsToShow = showAll ? allCategories : menuData[selected] || [];
 
   return (
-    <div className="w-full flex flex-col md:flex-row gap-8 md:gap-16 mt-8 max-w-[1440px] mx-auto px-4">
+    <div className="w-full flex flex-col md:flex-row gap-8 md:gap-16 my-8 max-w-[1440px] mx-auto px-4">
       {/* Sidebar */}
       <aside className="md:w-64 w-full md:sticky top-24">
         <ul className="space-y-2">

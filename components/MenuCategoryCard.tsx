@@ -16,7 +16,7 @@ const MenuCategoryCard: React.FC<MenuCategoryCardProps> = ({ title, imageSrc, ho
             `}
             onClick={onClick}
         >
-            <div className="relative w-40 h-full flex-shrink-0">
+            <div className="relative lg:w-40 w-20 h-full flex-shrink-0">
                 <Image
                     src={imageSrc || "/desserts/kunafa.jpg"}
                     alt={title}

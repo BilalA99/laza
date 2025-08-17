@@ -84,8 +84,8 @@ export default function Footer() {
                 </div>
                 <span className="text-[#2C4B7E]">© 2025 Laza Cafe inc.</span>
                 <div className="flex gap-12">
-                    <a href="#" className="hover:underline">Privacy Policy</a>
-                    <a href="#" className="hover:underline">Terms & Conditions</a>
+                    <Link href="/privacy-policy" className="hover:underline">Privacy Policy</Link>
+                    <Link href="/terms-conditions" className="hover:underline">Terms & Conditions</Link>
                 </div>
             </div>
         </footer>
