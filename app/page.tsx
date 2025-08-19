@@ -134,6 +134,7 @@ export default async function Home() {
               "https://www.instagram.com/laza.cafe",
               "https://www.tiktok.com/@lazacafe"
             ],
+            /* Location section commented out until /brooklyn and /queens pages exist
             "department": [
               {
                 "@type": "Restaurant",
@@ -476,6 +477,7 @@ export default async function Home() {
                 ]
               }
             ],
+            */
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "name": "Dessert Menu",

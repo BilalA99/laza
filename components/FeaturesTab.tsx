@@ -83,8 +83,8 @@ const FeatureTabs: React.FC<{ features: any[] }> = ({ features }) => {
         <div className="lg:hidden">
           <div className="flex flex-col gap-6">
             {/* Active card for mobile */}
-            <AnimatePresence mode="wait">
-              <motion.div
+                      <AnimatePresence>
+            <motion.div
                 key={activeIndex}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -215,7 +215,7 @@ const FeatureTabs: React.FC<{ features: any[] }> = ({ features }) => {
                   `}
                   onClick={() => !isActive && handleCardClick(index)}
                 >
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence>
                     {isActive ? (
                       // Active card content
 
