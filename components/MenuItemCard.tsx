@@ -25,7 +25,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ imageSrc, title, descriptio
                     {/* Image */}
                     <div className="relative w-full h-56 bg-[#1B3A6B]" style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}>
                         <Image
-                            src={imageSrc}
+                            src={imageSrc || '/lazabluelogo.png'}
                             alt={title}
                             fill
                             className="object-cover"

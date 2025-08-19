@@ -40,14 +40,6 @@ const ConfirmationPopup: React.FC<{ isVisible: boolean; onClose: () => void }> =
 
             {/* Popup */}
             <div className="relative bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl animate-in zoom-in-95 duration-500">
-                {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-[#2C4B7E] to-[#1B3A6B] rounded-full flex items-center justify-center animate-bounce">
-                    <span className="text-white text-2xl">🎉</span>
-                </div>
-
-                <div className="absolute -bottom-2 -left-2 w-12 h-12 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full flex items-center justify-center animate-pulse">
-                    <span className="text-white text-lg">🍰</span>
-                </div>
 
                 {/* Content */}
                 <div className="text-center relative z-10">
@@ -93,9 +85,9 @@ const ConfirmationPopup: React.FC<{ isVisible: boolean; onClose: () => void }> =
                 </div>
 
                 {/* Floating dessert icons */}
-                <div className="absolute top-4 left-4 text-2xl animate-bounce delay-1000">🧁</div>
+                {/* <div className="absolute top-4 left-4 text-2xl animate-bounce delay-1000">🧁</div>
                 <div className="absolute top-8 right-8 text-xl animate-bounce delay-1200">🍮</div>
-                <div className="absolute bottom-8 left-8 text-xl animate-bounce delay-1400">🍨</div>
+                <div className="absolute bottom-8 left-8 text-xl animate-bounce delay-1400">🍨</div> */}
             </div>
         </div>
     );
@@ -198,6 +190,7 @@ const OrderForm: React.FC = () => {
                         />
                     </div>
                     <div className="mt-6">
+                        
                         <FormField
                             control={form.control}
                             name="address"

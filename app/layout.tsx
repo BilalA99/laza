@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Roboto } from "next/font/google";
+import { Inter, Playfair_Display, Roboto, Bodoni_Moda, EB_Garamond,Cardo,Yeseva_One} from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import '@/components/embla.css'
@@ -29,6 +29,36 @@ const getBaseUrl = () => {
 };
 
 const baseUrl = getBaseUrl();
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  variable: "--font-bodoni",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+
+});
+
+const ebgaramond = EB_Garamond({
+  subsets: ["latin"],
+  variable: "--font-ebgaramond",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const cardo = Cardo({
+  subsets: ["latin"],
+  variable: "--font-cardo",
+  weight: ["400", "700"],
+  display: "swap",
+});
+
+const yeseva = Yeseva_One({
+  subsets: ["latin"],
+  variable: "--font-yeseva",
+  weight: ["400"],
+  display: "swap",
+});
+
+
 
 export const metadata: Metadata = {
   title: {
@@ -93,10 +123,10 @@ export const metadata: Metadata = {
     description: 'Indulge in premium Middle Eastern desserts at Laza Dessert Cafe. Fresh kunafa, crepes, shakes, and more. Order online for pickup or catering.',
     images: [
       {
-        url: `${baseUrl}/default_og.png`,
+        url: `${baseUrl}//logosocial.png`,
         width: 1200,
         height: 630,
-        alt: 'Laza Dessert Cafe - Premium Middle Eastern Desserts',
+        alt: 'Laza Dessert Cafe - Authentic Middle Eastern Desserts',
       }
     ],
   },
@@ -197,7 +227,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* End Google tag (gtag.js) */}
       </head>
       <body
-        className={`${inter.variable} ${playfair.variable} ${roboto.variable} antialiased w-full overflow-none`}
+        className={`${inter.variable} ${playfair.variable} ${roboto.variable} ${bodoni.variable} ${ebgaramond.variable} ${cardo.variable} ${yeseva.variable} antialiased w-full overflow-none`}
       >
         {/* Prevent external classes from being added to HTML element - runs on every page */}
         <script

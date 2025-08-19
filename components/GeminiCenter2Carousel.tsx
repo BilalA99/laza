@@ -44,8 +44,8 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
         };
 
         // Delay calculation to allow CSS transition on card size to complete.
-        // The card's transition is now 300ms.
-        const timer = setTimeout(calculateOffset, 300);
+        // Reduced delay for snappier animations
+        const timer = setTimeout(calculateOffset, 200);
 
         // Also recalculate on resize, but without a delay.
         window.addEventListener('resize', calculateOffset);
@@ -117,20 +117,19 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
     };
 
     return (
-        <div className="flex flex-col items-center justify-centerfont-sans p-4 overflow-hidden">
+        <div className="flex flex-col items-center justify-start overflow-hidden">
             <div
                 className="w-full max-w-8xl relative select-none [mask-composite:intersect] sm:[mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem)]"
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={handleMouseLeave}
             >
                 {/* Viewport container - this creates the visible window */}
-                <div ref={viewportRef} className="overflow-hidden cursor-grab select-none"
-
+                <div ref={viewportRef} className="overflow-hidden cursor-grab select-none h-80 sm:h-96 flex items-center"
                 >
                     {/* Carousel container - this is the element that moves */}
                     <div
                         ref={carouselRef}
-                        className="flex items-center justify-start space-x-8 md:space-x-12 px-4 transition-transform duration-500 ease-out select-none"
+                        className="flex items-center justify-start space-x-8 md:space-x-12 px-4 transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] select-none"
                         style={{ transform: `translateX(${offset}px)` }}
                     >
                         {products.map((product, index) => {
@@ -142,17 +141,17 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
                                     onMouseUp={handleMouseUp}
                                     key={`${product.id || product.title}-${index}`}
                                     data-index={index}
-                                    className={`flex-shrink-0 sm:w-auto w-screen transition-opacity duration-500 ease-in-out select-none ${isActive ? 'opacity-100' : 'opacity-100'}`}
+                                    className={`flex-shrink-0 sm:w-auto w-screen flex items-center justify-center transition-all duration-700 select-none ${isActive ? 'opacity-100 scale-100' : 'opacity-75 scale-95'}`}
                                 >
                                     {/* The actual card element with layout and content */}
                                     <div
-                                        className={`flex items-center transition-all duration-500 ease-in-out rounded-2xl overflow-hidden pointer-events-none select-none ${isActive ? 'p-6' : 'bg-transparent'}`}
+                                        className={`flex items-center transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] rounded-2xl overflow-hidden pointer-events-none select-none ${isActive ? 'p-6' : 'bg-transparent'}`}
                                     >
                                         <img
                                             src={product.imageSrc}
                                             alt={product.title}
                                             draggable={false}
-                                            className={`object-cover rounded-xl transition-all duration-500 ease-in-out flex-shrink-0 ${isActive ? 'w-40 h-40 md:w-70 md:h-70' : 'w-28 h-28 md:w-40 md:h-40'}`}
+                                            className={`object-cover rounded-xl transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex-shrink-0 ${isActive ? 'w-40 h-40 md:w-54 md:h-54' : 'w-24 h-24 md:w-32 md:h-32'}`}
                                             onError={(e) => {
                                                 const target = e.target as HTMLImageElement;
                                                 target.onerror = null;
@@ -160,14 +159,28 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
                                             }}
                                         />
                                         {/* Details section - animates width and opacity */}
-                                        <div className={`transition-all duration-500 ease-in-out flex-1 ml-6 md:ml-8 flex flex-col justify-center text-left overflow-hidden ${isActive ? 'max-w-md opacity-100' : 'max-w-0 opacity-0'}`}>
-                                            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 whitespace-nowrap">{product.title}</h3>
-                                            <p className="text-sm md:text-base mt-3 text-gray-600">{product.description}</p>
-                                            <div className="flex flex-col space-y-4 justify-between items-start mt-6">
-                                                <span className="font-bold text-lg md:text-xl text-gray-800 whitespace-nowrap">${product.price}</span>
+                                        <div className={`transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex-1 ml-4 md:ml-6 flex flex-col justify-center text-left overflow-hidden ${isActive ? 'max-w-sm opacity-100 translate-x-0' : 'max-w-0 opacity-0 translate-x-4'}`}>
+                                            <h3
+                                                className={`text-xl md:text-3xl font-bold text-gray-800 transition-all w-full duration-500 ease-out ${isActive
+                                                    ? 'opacity-100 translate-y-0 delay-150'
+                                                    : 'opacity-0 translate-y-2 delay-0'
+                                                    } ${product.title.length > 15
+                                                        ? 'whitespace-normal'
+                                                        : 'whitespace-nowrap'
+                                                    }`}
+                                            >
+                                                {product.title}
+                                            </h3>
+                                            <p className={`text-xs md:text-base mt-3 text-gray-600 overflow-hidden transition-all duration-500 flex-wrap-reverse ease-out ${isActive ? 'opacity-100 translate-y-0 delay-300' : 'opacity-0 translate-y-2 delay-0'}`}>
+                                                {product.description.length > 50 ? product.description.slice(0, 50) + '...' : product.description}
+                                            </p>
+                                            <div className="flex flex-col space-y-2 justify-between items-start mt-3">
+                                                <span className={`font-bold text-xs md:text-xl text-gray-800 whitespace-nowrap transition-all duration-500 ease-out ${isActive ? 'opacity-100 translate-y-0 delay-450' : 'opacity-0 translate-y-2 delay-0'}`}>
+                                                    ${product.price}
+                                                </span>
                                                 <Link
                                                     href={link}
-                                                    className="bg-blue-600  text-white font-semibold px-4 py-2 md:px-5 md:py-2.5 rounded-full text-sm md:text-base hover:bg-blue-700 transition-colors whitespace-nowrap pointer-events-auto"
+                                                    className={`bg-blue-600 mb-[1px] text-white font-semibold px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm hover:bg-blue-700 transition-all duration-500 ease-out hover:scale-105 whitespace-nowrap pointer-events-auto ${isActive ? 'opacity-100 translate-y-0 scale-100 delay-600' : 'opacity-0 translate-y-2 scale-95 delay-0'}`}
                                                     // onClick={(e) => {
                                                     //     e.stopPropagation();
                                                     //     if (!dragging && isActive) {
@@ -211,7 +224,7 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
                 </div>
 
                 {/* Navigation Buttons */}
-                <div className="flex justify-center space-x-4">
+                <div className="flex justify-center space-x-4 ">
                     <button
                         onClick={handlePrev}
                         className=" rounded-full p-3"

@@ -230,7 +230,7 @@ export const cupsMenu = [
     ]
   },
   {
-    "imageSrc": "/cups/dubai chocolate.png",
+    "imageSrc": "/drinks/dubai-strawberry-cup.jpg",
     "title": "Dubai Chocolate",
     "description": "Strawberry W/ Dubai Kunafa Filling & Milk Choc & Drizzle with White Choc",
     "price": 16,

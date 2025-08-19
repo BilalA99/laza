@@ -2,9 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 import FadeIn from '@/components/FadeIn'
 import OrderNowButton from '@/components/OrderNowButton'
-import FAQSection from '@/components/FAQSection'
 import MenuImageCard from '@/components/MenuImageCard'
 import type { Metadata } from 'next'
+import FAQsSections from '@/components/FAQSections'
 
 export const metadata: Metadata = {
   title: "About Us - Laza Dessert Cafe",
@@ -209,12 +209,11 @@ const AboutUs = () => {
                     </div>
 
 
-                    <div className='flex flex-row items-center justify-center w-full h-full mt-50 '>
-                        <FAQSection />
-                    </div>
-                </section>
-
-
+                <div className='flex flex-row items-center justify-center w-full h-full mt-50 '>
+                    {/* <FAQSection /> */}
+                    <FAQsSections />
+                </div>
+            </section>
                 <section className='items-center grid md:grid-cols-3 grid-cols-1 gap-0 justify-center w-full h-full overflow-hidden '>
                     {[
                         {
