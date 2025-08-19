@@ -231,7 +231,7 @@ export default function TestimonialsCarousel({ reviews }: { reviews: GoogleRevie
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           {reviews.slice(index, index + visible).map((t, i) => (
             <TestimonialCard
               testimonial={t}
