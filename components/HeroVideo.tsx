@@ -11,11 +11,14 @@ export default function HeroVideo() {
         <section className="relative aspect-video w-full lg:h-auto sm:min-h-100 h-[85vh]">
             {/* Background Video */}
             <div className="absolute inset-0 w-full sm:h-full h-[85vh]">
-                <AutoPlayVideo
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
                     src="/herovideo.mp4"
                     className="w-full sm:h-full h-[85vh] object-cover sm:object-center object-left"
                     id="hero-video"
-                    playButtonText="Experience Laza Cafe"
                 />
                 <div className="absolute inset-0 bg-black/40 sm:h-auto h-[85vh]"></div>
             </div>

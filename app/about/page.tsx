@@ -129,16 +129,16 @@ const AboutUs = () => {
             />
             <main className='flex flex-col items-center justify-center w-full overflow-hidden '>
                 {/* Hero Section */}
-                <section className='relative flex max-w-[1440px] overflow-hidden flex-col items-start w-full sm:mt-32 mt-10 md:pl-0 pl-2 [mask-composite:intersect] sm:[mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem),linear-gradient(to_top,transparent,black_6rem)] sm:pb-20'>
-                    <div className='relative inset-0 md:w-[75%] w-[90%] md:h-130 h-80 overflow-hidden '>
-                        <Image src="/bluelazaheader.png" alt="Blue Laza" fill className='object-cover object-center' />
+                <section className='relative flex max-w-[1440px] border overflow-hidden flex-col items-start w-full sm:mt-0 mt-10 md:pl-0 pl-2 [mask-composite:intersect] sm:[mask-image:linear-gradient(to_right,transparent,black_6rem),linear-gradient(to_left,transparent,black_6rem),linear-gradient(to_top,transparent,black_6rem)] sm:pb-20'>
+                    <div className='relative inset-0 md:w-[70%] w-[90%] md:h-160 h-80 overflow-hidden '>
+                        <Image src="/bluelazaheader.png" alt="Blue Laza" fill className='object-fill object-center' />
                     </div>
-                    <div className='absolute sm:top-1/4 sm:mt-0 mt-20 xl:-right-10 md:right-0 -right-30 xl:w-200 lg:w-120 md:w-100 w-70 xl:h-180 lg:h-130 md:h-100 h-80' style={{ overflow: 'hidden' }}>
+                    <div className='absolute sm:top-1/3 sm:mt-0 mt-20 xl:-right-10 md:right-0 -right-30 xl:w-200 lg:w-120 md:w-100 w-70 xl:h-180 lg:h-130 md:h-100 h-80' style={{ overflow: 'hidden' }}>
                         <Image src="/dubaichoclateheader.png" alt="Dubai Chocolate" fill className='object-cover object-center' />
                     </div>
 
                     <div className='flex flex-row items-start space-x-6 md:mt-0 mt-6  w-full md:px-20 px-2 overflow-hidden'>
-                        <div className='relative md:w-45 w-[30%] md:h-80 h-50 mt-6 rounded-full overflow-hidden'>
+                        <div className='relative md:w-60 w-[30%] md:h-80 h-50 mt-6 rounded-full overflow-hidden'>
                             <Image src="/strawberrysmoothie.png" alt="Strawberry Smoothie" fill className='object-cover object-center' />
                         </div>
                         <div className='flex flex-col items-start justify-center md:w-full w-[70%] text-black space-y-4'>
@@ -151,7 +151,7 @@ const AboutUs = () => {
                                     <span className=' text-[#2C4B7E] font-bold'> Sunday - Saturday</span>: 2:00pm - 2:00am</p>
                             </div>
                             <div className="bg-[#234B82] w-20 h-[3px] my-4" />
-                            <p className='text-lg md:w-[50%] w-[90%] z-10'
+                            <p className='text-lg md:w-[30%] w-[90%] z-10'
                             style={{
                                 fontFamily: "var(--font-raleway)",
                             }}

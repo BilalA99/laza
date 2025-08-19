@@ -537,9 +537,9 @@ export default async function Home() {
         <section className="relative aspect-video h-full w-full items-center justify-start overflow-hidden sm:min-h-220 min-h-180" >
           {/* Gradient + Image background */}
           <FadeIn className="relative -z-10">
-            <div className="absolute sm:-top-40 -top-14 md:w-225 w-70 md:h-180 h-60 -z-20 md:right-0 -right-10 "
+            <div className="absolute sm:-top-10 -top-14 md:w-225 w-70 md:h-180 h-60 -z-20 md:right-0 -right-10 "
             >
-              <Image src="/bluelazaheader.png" alt="Blue Laza" fill className='object-contain object-center' />
+              <Image src="/lazablack1.png" alt="Blue Laza" fill className='object-cover object-center' />
             </div>
           </FadeIn>
 

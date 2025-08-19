@@ -221,7 +221,7 @@ export default function GeminiCenter2Carousel({ products }: { products: any[] })
                                                 </span>
                                                 <Link
                                                     href={link}
-                                                    className={`bg-blue-600 mb-[1px] text-white font-semibold px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm hover:bg-blue-700 transition-all duration-500 ease-out hover:scale-105 whitespace-nowrap pointer-events-auto ${isActive ? 'opacity-100 translate-y-0 scale-100 delay-600' : 'opacity-0 translate-y-2 scale-95 delay-0'}`}
+                                                    className={`bg-[#2C4B7E] mb-[1px] text-white font-semibold px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm hover:bg-blue-700 transition-all duration-500 ease-out hover:scale-105 whitespace-nowrap pointer-events-auto ${isActive ? 'opacity-100 translate-y-0 scale-100 delay-600' : 'opacity-0 translate-y-2 scale-95 delay-0'}`}
                                                     // onClick={(e) => {
                                                     //     e.stopPropagation();
                                                     //     if (!dragging && isActive) {
